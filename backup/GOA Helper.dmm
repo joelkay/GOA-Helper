@@ -1,0 +1,121 @@
+"a" = (/turf,/area)
+"b" = (/obj/sand,/turf,/area)
+"c" = (/obj/leaf,/turf,/area)
+"d" = (/obj/mist,/turf,/area)
+"e" = (/obj/nonclan,/turf,/area)
+"f" = (/obj/clan,/turf,/area)
+"g" = (/obj/clanslots/clanslot1,/turf,/area)
+"h" = (/obj/clanslots/clanslot2,/turf,/area)
+"i" = (/obj/clanslots/clanslot3,/turf,/area)
+"j" = (/obj/clanslots/clanslot4,/turf,/area)
+"k" = (/obj/clanslots/clanslot5,/turf,/area)
+"l" = (/obj/clanslots/clanslot6,/turf,/area)
+"m" = (/obj/info,/turf,/area)
+"n" = (/turf/Creation,/area)
+"o" = (/obj/done,/turf,/area)
+"p" = (/turf/ClanClick,/area)
+"q" = (/turf{tag = "Main"},/area)
+"r" = (/obj/Main,/turf,/area)
+"s" = (/obj/SkillMenuC,/turf,/area)
+"t" = (/obj/SkillMenuNC,/turf,/area)
+"u" = (/obj/SkillMenuP,/turf,/area)
+
+(1,1,1) = {"
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaabaacaadaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aeaaaaaaafaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+agaahaiaajakaalaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+amaaaaaaaaaaaaaaa
+naaaaaaaaaaaaoaaa
+"}
+
+(1,1,2) = {"
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaapapapapapapaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaqaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+raaaaaaaaaaaaaaaa
+"}
+
+(1,1,3) = {"
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+saaaaaaaaaaaaaaaa
+"}
+
+(1,1,4) = {"
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+taaaaaaaaaaaaaaaa
+"}
+
+(1,1,5) = {"
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+uaaaaaaaaaaaaaaaa
+"}

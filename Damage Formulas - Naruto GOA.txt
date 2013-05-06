@@ -1,0 +1,237 @@
+﻿      Key:
+      attacker_modified_xxx: The final stat(xxx) of the attacker. (The number 
+      shown on the quick stat area)
+	  
+      defender_modified_xxx: The final stat(xxx) of the defender. (The number 
+      shown on the quick stat area)
+
+      attacker_xxx: The base stat(xxx) of the attacker. (The number shown on the 
+      detailed stats screen)
+      defender_xxx: The base stat(xxx) of the defender. (The number shown on the 
+      detailed stats screen)
+
+      random(min, max): a random number (no decimals!) between min and max.
+      round_down(x): Pretty much what it says. The first integer less than or 
+      equal to x.
+
+Tajutsu
+        Normal Tai: General str multiplier: attacker_modified_str / 150
+          	Critical Hit
+            		Stamina: normal hit + (attacker_modified_str * random(15, 40) / 10)
+          	Normal Hit
+            	Hit Level: ((attacker_modified_rfx * random(5, 10)) / (defender_modified_rfx * random(5, 10))) * random(80, 120)
+           	Stamina damage is multiplied by 1.5 in gate 5 or above.
+            	Hit Level 150 or above
+              		Stamina: 150 * str multiplier
+            	Hit Level 100 to 150
+              		Stamina: 125 * str multiplier
+           	Hit Level 50 to 100
+              		Stamina: 100 * str multiplier
+           	Hit Level below 50
+             		 Stamina: 75 * str multiplier
+
+        Mystical Palms
+          Critical Hit
+            Stamina: attacker_modified_con * random(50, 80) / 10
+            Wound: (random(1, 4) / 2) * (attacker_modified_con / 150)
+          Normal Hit
+            Stamina: attacker_modified_con * random(1, 2) / 2
+            Wound: random(0, 1)
+			
+        Cherry Blossom Impact
+          Stamina: (attacker_modified_str + attacker_modified_con) * random(1, 
+          2) + 800
+		  
+        Size-Up
+          Level 1
+            Stamina: (attacker_modified_str) * random(2, 4) + 800 -- Note: 
+            Basically just CTR with str*2 instead of str+con
+			
+          Level 2
+            Stamina: (attacker_modified_str) * random(3, 5.5) + 800
+			
+        Gentle Fist
+          see normal tai, replace 'str' with 'con'
+          All Hits
+            Wound: 50% chance of random(1, 2)
+            Chakra: 50% chance of 15
+			
+        Lion Combo
+          Hit Level: ((attacker_modified_rfx * random(5, 10)) / 
+          (defender_modified_rfx * random(5, 10))) * 100
+          Multiplier: attacker_modified_str / defender_modified_str
+          Hit Level 150 or above
+            Stamina: 2000 * multiplier
+          Hit Level 100 to 150
+            Stamina: 1700 * multiplier
+          Hit Level 75 to 100
+            Stamina: 1400 * multiplier
+          Hit Level 50 to 75
+            Stamina: 1000 * multiplier
+          Hit Level 25 to 50
+            Stamina: 700 * multiplier
+          Hit Level below 25
+            No damage
+			
+ 	Leaf Whirlwind
+          Hit Level: ((attacker_modified_str * random(5, 10)) /(defender_modified_str * random(5, 10))) * 60
+          	Hit Level 200 or above
+           		Stamina: 700 + attacker_modified_str
+          	Hit Level 150 to 200
+            		Stamina: 550 + attacker_modified_str
+          	Hit Level 100 to 150
+            		Stamina: 400 + attacker_modified_str
+          	Hit Level 75 to 100
+            		Stamina: 300 + attacker_modified_str
+          	Hit Level 50 to 75
+            		Stamina: 150 + attacker_modified_str
+         	Hit Level 25 to 50
+            		Stamina: 100 + attacker_modified_str
+          	Hit Level below 25
+            		Stamina: 0
+					
+        Nirvana Fist
+          Hit Level: ((attacker_modified_str * random(5, 10)) / (defender_modified_str * random(5, 10))) * 60
+          	Hit Level 200 or above
+            		Stamina: 450 + attacker_modified_str
+            		Stun: 2s
+          	Hit Level 150 to 200
+            		Stamina: 400 + attacker_modified_str
+            		Stun: 1.5s
+          	Hit Level 100 to 150
+            		Stamina: 275 + attacker_modified_str
+            		Stun: 1s
+          	Hit Level 75 to 100
+            		Stamina: 200 + attacker_modified_str
+		Stun: 0.5s
+          	Hit Level 50 to 75
+            		Stamina: 100 + attacker_modified_str
+          	Hit Level 25 to 50
+            		Stamina: 50 + attacker_modified_str
+          	Hit Level below 25
+            		Stamina: 0
+
+      Weapons
+        Melee Kunai
+          Stamina: attacker_rfx * random(10, 14) / 10
+          Bleeding: Adds random(1, 4) wounds to a hit, and does 2, 4, or 6 later 
+          cycles of 100 stamina damage each.
+        Exploding Kunai
+          Targeted: 1500 stamina
+          Untargeted: 1200 stamina
+		  
+Elemental Jutsu
+      General con multiplier: attacker_modified_con / 150
+	Katon: Dragon Fire
+          Stamina (initial): random(250, 500) + con multiplier * 1000
+         	 Wound (initial): random(5, 10) + round_down(con multiplier)
+          	Stamina (subsequent): random(250, 500) + con multiplier * 100
+         	 Wound (subsequent): random(5, 10) + round_down(con multiplier / 2)
+          	Up to 3 subsequent hits, for 4 total.   
+			
+	Doton: Earth Flow
+          Travels upto 15 tiles (15 hits)
+          	Stamina (initial hit per player): random(250, 750) + con multiplier * 250
+          	Stamina (all previously hit players): random(50, 100) + con multiplier * 10
+	Chidori
+	Hit Level: ((attacker_modified_rfx * random(5, 10)) / (defender_modified_rfx * random(5, 10))) * 70
+	Hit Level 150 or above = Critical Hit
+		Targeted
+		Stamina: random(1500, 2500) + con multiplier * 1000
+		Wound: random(5, 20)
+		Untargeted
+		Stamina: random(1200, 2000)
+		Wound: random(20, 50)
+	Hit Level 120 to 150 = Normal Hit
+		Targeted
+		Stamina: Later
+		Wound: Later
+		Untargeted
+		Stamina: Later
+		Wound: Later
+	Hit Level 75 to 120 = Partial Hit
+		Targeted
+		Stamina: random(1500, 2500) + con multiplier * 500
+		Wound: random(2, 5)
+		Untargeted
+		Stamina: random(300, 500)
+		Wound: random(10, 20)
+	Hit Level below 75 = Missed (untargeted) or electicity hit (targeted)
+		Electricity Stamina: random(750, 1250) + con multiplier * 250
+	Chidori Spear
+		Stamina: random(1500, 2000) + con multiplier * 500
+          	Wound: random(10, 20)
+	Chidori Needles
+          	Stamina (per needle): 100 + con multiplier * 50
+	Chidori Current
+          	Stamina: Later        
+	Giant Vortex
+          	Stamina: 250 + con multiplier * 750
+	Explosive Shockwave
+	Stamina: 500 + con multiplier *1000
+	Water Dragon
+          	Stamina: 1000 + con multiplier *2000
+	Collison-Destruction
+          	Stamina: 750 + con multiplier * 750 + (number of water tiles on screen, max 10) * 50
+        Fuuton: Pressure Damage
+          	Stamina: (Charged chakra - 300) * 3 + 1000 + round_down(con multiplier * 500)
+        Fuuton: Wind Blade (does 70% damage from 2 tiles out)
+          Hit Level: ((attacker_modified_rfx * random(5, 10)) / 
+          (defender_modified_rfx * random(5, 10))) * 100
+          Hit Level 150 or above
+            Critical Hit
+            Stamina: random(800, (1000+ con multiplier * 500))
+            Wound: random(20, 30)
+	  Hit Level 120 to 150
+            Normal Hit
+            Stamina: Later
+            Wound: Later
+          Hit Level 75 to 120
+            Partial Hit
+            Stamina: random(300, (300 + con multiplier * 200))
+            Wound: random(10, 20)
+          Hit Level below 75
+            Missed
+        Fuuton: Great Breakthrough
+          Stamina: 250 + con multiplier* 250
+	Fuuton: Air Bullet
+          Stamina: 750 + con multiplier * 500
+Clan Jutsu
+	Meat Tank
+	  Stamina:  400 + random(1,3)*attacker_modified_str     
+        Kaiten
+          Stamina: 100 + con multiplier*50
+        64 palms
+          Stamina: 3000 + con multiplier * 500
+        Shadow Neck Bind
+          Stamina: 1000 + con multiplier * 500
+        Shadow Needles
+          Stamina per needle: random(600, (900+ con multiplier * 300))
+        Ice Needles
+          Stamina (Central Tile): random(400, 1300) + con multiplier * 300
+          Stun (Central Tile): 3
+          Stamina (1 from center): random(200, 300) + con multiplier * 70
+        Ice Explosion
+          Stamina: random(1000, 1500) + 500 * con multipler
+          Wound: random(3, 6)
+        Ice Mirrors
+          Stamina: random(500, 1000) + 500 * con multiplier
+          Wound: random(15, 40)
+	Bone Bullets
+	  Stamina:
+        Exploding Bird
+          Stamina: random(500,1000) + con multiplier*200
+        Exploding Spider
+          Stamina: random(600,1500) + con multiplier*400
+        C3
+          Stamina (per hit): attacker_current_chakra * 5 + con multiplier * 3250 
+          + random(200, 1000)
+          Damages up to 9 times
+Non elemental jutsu        
+	Chakra Leech
+          Chakra (per 1/2 second): 25 * con multiplier
+        Rasengan
+          Stamina: 500 + 1000 * con multiplier
+        Oodama Rasengan
+          Stamina: 1000 + 2000 * con multiplier
+	Wound: random(15,20)

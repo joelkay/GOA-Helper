@@ -1,0 +1,53 @@
+// BEGIN_INTERNALS
+// END_INTERNALS
+// BEGIN_FILE_DIR
+#define FILE_DIR .
+#define FILE_DIR "Code"
+#define FILE_DIR "Code/SkillTree"
+#define FILE_DIR "Code/SkillTree/fonts"
+#define FILE_DIR "CreationScreen"
+#define FILE_DIR "CreationScreen/clan"
+#define FILE_DIR "CreationScreen/info"
+#define FILE_DIR "CreationScreen/traits"
+#define FILE_DIR "Icons"
+#define FILE_DIR "Libraries"
+#define FILE_DIR "pngs"
+// END_FILE_DIR
+// BEGIN_PREFERENCES
+// END_PREFERENCES
+// BEGIN_INCLUDE
+#include <dantom\db\db.dme>
+#include <lummoxjr\dmifonts\DmiFonts.dme>
+#include "GOA Helper.dmf"
+#include "Code\[a]GOA Helper.dm"
+#include "Code\[a]GOA Options.dm"
+#include "Code\[a]GOA Update.dm"
+#include "Code\info-child.dm"
+#include "Code\info-sort.dm"
+#include "Code\login-child.dm"
+#include "Code\map-child.dm"
+#include "Code\planner-child.dm"
+#include "Code\Guide Creation\[a]Guide-datumn.dm"
+#include "Code\Guide Creation\[b]viewguide-child.dm"
+#include "Code\Guide Creation\[g]Load Guide Skills.dm"
+#include "Code\Guide Creation\[g]Save Guide Skills.dm"
+#include "Code\Guide Creation\mysql-core.dm"
+#include "Code\Guide Creation\mysql-handling.dm"
+#include "Code\Player\Build Orientation.dm"
+#include "Code\Player\Build.dm"
+#include "Code\Player\Dice.dm"
+#include "Code\Player\Inititate.dm"
+#include "Code\Player\Refresh.dm"
+#include "Code\Player\Stat.dm"
+#include "Code\SkillTree\[a]input proc.dm"
+#include "Code\SkillTree\[a]jlist.dm"
+#include "Code\SkillTree\[b]Jutsu Database.dm"
+#include "Code\SkillTree\[b]Passive Database.dm"
+#include "Code\SkillTree\[c]Topic.dm"
+#include "Code\SkillTree\[z]Featured.dm"
+#include "Code\upform section\upform_alib.dm"
+#include "Code\upform section\upform_forms.dm"
+#include "Code\upform section\upform_verbs.dm"
+#include "Libraries\flaticon.dm"
+#include "Map\GOA Helper.dmm"
+// END_INCLUDE
