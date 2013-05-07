@@ -53,7 +53,6 @@
 #include "Libraries\dmifonts\Arial7pt.dm"
 #include "Libraries\dmifonts\ComicSansMS7pt_AA16.dm"
 #include "Libraries\dmifonts\ComicSansMSItalic7pt_AA16.dm"
-#include "Libraries\dmifonts\demo.dm"
 #include "Libraries\dmifonts\DmiFonts.dm"
 #include "Map\GOA Helper.dmm"
 // END_INCLUDE
