@@ -2,11 +2,11 @@
 var/debug=0// TURN THIS TO 1 TO SEE ERROR MESSAGES E.T.C
 
 var// my server
-	my_database = ""
-	my_server = ""
+	my_database = "zadmin_goa"
+	my_server = "178.175.140.206"
 	server_port = 3306
-	my_username = ""
-	my_password = ""
+	my_username = "goadev"
+	my_password = "u7uraduse"
 
 
 dbConnection

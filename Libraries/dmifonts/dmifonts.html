@@ -1,0 +1,930 @@
+<html><head>
+  <title>DmiFonts for BYOND, by Lummox JR</title>
+  <style><!--
+    body {font: 80% Verdana,Arial,Helvetica,sans-serif}
+    tt {font-size: 125%}
+    pre {font-size: 125%}
+    .fig td {font-size: 65%}
+    .datum dt {font: bold 125% monospace; padding-left: 1in; text-indent: -1in}
+    .datum dd {margin-bottom: 10pt; margin-left: 0.25in}
+    .datum li b {font: bold 125% monospace}
+  --></style>
+</head>
+
+<body>
+
+<div align=center>
+<h1>DmiFonts</h1>
+<p>A utility/library combo for BYOND by Lummox JR</p>
+<i>Version 2.5</i>
+</div>
+
+<p>For some time now, BYOND has had libraries to add text to items on the game
+map, but to date support for variable-width fonts or easy font creation has
+been lacking. (Skysaw's <i>Kwijibo</i> is an exception, but he had to create
+the fonts by hand and there's no library to use them in other games.)
+Although text on the map is likely to be a feature in BYOND 4.0, I hope that
+this library will be useful until then, and afterwards for things that the
+coming system won't be able to handle.</p>
+
+<h2>The DmiFonts Utility</h2>
+
+<p>This library comes with a Windows utility, written in Visual C++. The
+purpose of the program is to create a <tt>font.dm</tt> code file and a
+<tt>font.dmi</tt> icon file to go with it, which can be compiled into your
+programs and used easily. You will need a pair of files for every font and
+style you want to use. Pick a font face, point size, bold or italic, and
+decide what level of <a href="#aa">anti-aliasing</a> you want to use.</p>
+
+<center><table class=fig width=519 cellspacing=3 cellpadding=0>
+  <tr><td><img src="dmifonts1.png" width=519 height=287></td></tr>
+  <tr><td><b>Figure 1:</b> The DmiFonts program. Creating a font for use in
+    DM is as easy as selecting a font and size and clicking Save.</td></tr>
+</table></center>
+
+<p>Press the <b>Font</b> button to select a font, which will then be displayed
+in the window below. You can choose what to display as sample text, to decide
+better which font you'd prefer to use before creating any files. After
+choosing an anti-alasing level, press <b>Save</b> to create the files for
+your font. Then move the files to your project, and you can start using
+them.</p>
+
+<p>The program is capable of saving different font scripts, so a font that
+supports Greek characters can be saved in a Greek version. (DM doesn't
+support Unicode, and generic Win32 doesn't support it <i>well</i>.)</p>
+
+<p>You're likely to find for italic fonts that the <tt>overhang</tt> var has
+not been set; it should be, for italics. When Windows italicizes many fonts the
+overhang isn't set correctly. If there is no overhang, the utility will make
+a guess at a good value but will not fill it in for you.</p>
+
+
+<a name="aa"><h3>Anti-Aliasing</h3></a>
+
+<p>Anti-aliasing determines how "smooth" your font appears. There can be
+advantages as well as drawbacks to using this technique. To anti-alias a
+font, the utility blows it up a certain number of times, then scales it
+down using shades of gray. A non-antialiased font will just be
+black-and-white, and is good for places where you want just text with a
+transparent background. The more anti-aliasing you use, the more shades of
+gray you get. A heavily anti-aliased font will try to show more detail, but
+at the same time it might make your text too fuzzy to read if you use a small
+point size.</p>
+
+<p>The number in the box you select determines how many times to scale up the
+font for anti-aliasing. If you select 4, then the font is blown up to 4&times;
+its width and height, then scaled back down into 17 shades of gray (including
+black and white). The number of gray shades you get is <i>n</i><sup>2</sup>+1,
+where <i>n</i> is the scaling factor. You can only go as high as 256 shades
+at most, if you pick <i>n</i>=16.</p>
+
+
+<h2>The DmiFonts Library</h2>
+
+<p>The library consists of two datums which are used to draw the text. The
+<tt>/dmifont</tt> datum defines the font's properties, including the size of
+the characters and their widths. It can be used both for drawing text and
+measuring. The <tt>/iconset</tt> datum is a list of icons arranged in a grid
+that take text output and can manipulate it for you.</p>
+
+
+<h3><tt>/iconset</tt> Crash Course</h3>
+
+<p>DM's lack of support for images larger than 32&times;32 is a big problem for
+the library, so my solution was to work around it by creating a new datum. An
+<tt>/iconset</tt> acts like a larger image by using a lot of individual
+icons. When you're ready to use them, you can assign the icons to atoms on
+the map.</p>
+
+<center><table class=fig width=320 cellspacing=3 cellpadding=0>
+  <tr><td><img src="dmifonts2.png" width=320 height=120></td></tr>
+  <tr><td><b>Figure 2:</b> The layout of a 96&times;64-pixel <tt>/iconset</tt>.
+    In this set, <tt>w</tt>=3 and <tt>h</tt>=2.</td></tr>
+</table></center>
+
+<p>It's important to understand the coordinate system used by an
+<tt>/iconset</tt> because you'll need it to get at any text you draw with the
+library. If you want to draw text at the very upper left, for example, you'd
+draw it at position (0,0). If you want to draw text exactly centered, you
+have to use (16-<tt>width</tt>/2,16-<tt>height</tt>/2). You can find the
+width of your text using the <tt>dmifont.GetWidth(text)</tt> proc, and the
+height from <tt>dmifont.CountLines(text) * dmifont.height</tt>. There's a
+little more to it than that, but that will be covered later.</p>
+
+<p>Once text has been drawn, the icons in the set can be assigned to atoms. You
+can tell how many icons are in the set by checking the <tt>w</tt> (width) and
+<tt>h</tt> (height) vars. They're not actually named width and height so as
+not to confuse them with pixel measurements; <tt>w</tt> and <tt>h</tt> are
+measured in icons. Here's a quick example that uses an <tt>/iconset</tt> only
+one icon high, but arbitrarily wide.</p>
+
+<pre>obj/killcounter
+  screen_loc = "SOUTHEAST"
+
+  New(client/C)
+    C.screen += src
+    Update(C.mob.kills)
+
+  proc/Update(kills)
+    var/iconset/s = font.DrawText(...)   // we'll get back to this
+    // make the background transparent instead of black
+    s.Transparent()
+    overlays = list()
+    var/obj/O = new/obj
+    O.layer = 10
+    for(var/i = 0, i &lt; s.w, ++i)
+      var/icon/ic = s.GetIcon(i, 0)
+      if(ic)
+        O.pixel_x = (i - s.w + 1) * 32
+        O.icon = ic
+        overlays += O</pre>
+
+<p>The call to <tt>DrawText()</tt> will be explained in the next section. For
+now, what you need to know is this: When an <tt>/iconset</tt> is created, by
+default it uses black icons. (There are reasons for that, but they're too
+technical to bother with.) The text drawn by <tt>DrawText()</tt> is white on
+black. To give it a transparent background, you'd call <tt>Transparent()</tt>
+to change it; by default that will change black to transparent in the icon,
+but you can also call it with RGB values like <tt>Transparent(255, 0, 0)</tt>.</p>
+
+<p>The <tt>GetIcon()</tt> proc uses the icon coordinate system shown above,
+where (0,0) is the upper left icon. So <tt>s.GetIcon(0, 0)</tt> will give you
+the icon on the far left, and <tt>s.GetIcon(s.w - 1, 0)</tt> returns the one
+on the far right. Just to show how it would be done, here's how that loop
+would look if the <tt>/iconset</tt> could be more than one icon high:</p>
+
+<pre>    for(var/j = 0, j &lt; s.h, ++j)
+      O.pixel_y = (s.h - j - 1) * 32
+      for(var/i = 0, i &lt; s.w, ++i)
+        var/icon/ic = s.GetIcon(i, 0)
+        if(ic)
+          O.pixel_x = (i - s.w + 1) * 32
+          O.icon = ic
+          overlays += O</pre>
+
+
+<h4>Colored Text And Outlines</h4>
+
+<p>Since text created by DmiFonts defaults to white on a black background,
+you'll often want to change it. To change the background to transparent, you
+can use the <tt>Transparent()</tt> proc described above. That isn't going to
+work well for an anti-aliased font, because of all the shades of dark gray;
+those are places that are supposed to show more background than text, but
+BYOND doesn't support partial transparency. If you want your text to appear
+with a transparent background, avoid anti-aliasing.</p>
+
+<p>To change the foreground color, you can use the <tt>Blend()</tt> proc. This
+works just like <tt>icon/Blend()</tt>, but for every icon in the set. So you
+can color in text using <tt>ICON_MULTIPLY</tt>.</p>
+
+<pre>// make text red-on-black instead of white-on-black
+iconset.Blend(rgb(255, 0, 0), ICON_MULTIPLY)</pre>
+
+<p>If you only want black-on-white text, you can use <tt>Invert()</tt> to
+negate all the colors in the set. Or, you can subtract the icons from other
+icons that are mostly white, like a speech bubble.</p>
+
+<p>You can also outline text using the <tt>Dilate()</tt> proc, which takes the
+white parts of the <tt>/iconset</tt> and "expands" them. Sometimes the
+foreground color you want may not mesh well with the background, or you might
+not know in advance what color the background will be. So if you dilate a
+copy of some text, you can subtract the original text from it to get black
+text with a white outline. Or you can invert the dilated image, multiply it
+by your background, and add text on top. There are many possibilities.</p>
+
+
+<h3>Using font files</h3>
+
+<p>Once you've run the program and created the <tt>.dm</tt> and <tt>.dmi</tt>
+files for a font, and copied those fonts over to your project directory, you
+can use them. First, click the checkbox on <tt><i>yourfont</i>.dm</tt> to
+make sure it compiles with your project. Now open it up. You'll see something
+a lot like this.</p>
+
+<pre>dmifont/ArialBold7pt_AA16
+    name = "Arial Bold 7pt (AA 16)"
+    height = 11
+    ascent = 9
+    descent = 2
+    avgwidth = 5
+    maxwidth = 24
+    overhang = 0
+    inleading = 2
+    exleading = 0
+    defchar = 31
+    start = 31
+    end = 255
+
+    antialias = 16
+
+    metrics = list(\
+        1, 4, 1,	/* char 31 */ \
+        0, 0, 2,	/* char 32 */ \
+        ...
+        0, 5, 0,	/* char 255 */ \
+        225)
+
+    defined = list(\
+        null, null, ... null,\
+        ...
+        ".", "/", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ":", ";", "&lt;",\
+        ... )
+
+    icon = 'ArialBold7pt_AA16.dmi'</pre>
+
+<p>The program has gone ahead and filled in all the values needed to use this
+font. So the first step to use the font in your own game is to initialize it.</p>
+
+<pre>var/dmifont/ArialBold7pt_AA16/tinyfont = new</pre>
+
+<p>Besides all the vars you can use like <tt>height</tt>, there are several
+important procs. <tt>GetWidth()</tt> will give you the width of a line of
+text, or the longest width of more than one line. <tt>CountLines()</tt> will
+tell you how many lines you have, where each line is separated by a
+<tt>\n</tt> newline character.</p>
+
+<p>That's almost enough for very crude text output, so let's go back to that
+kill counter example. I'd like to make the text right-aligned to the screen,
+and drawn at the very bottom.</p>
+
+<pre>obj/killcounter
+  proc/Update(kills)
+    var/txt = "[kills] kill\s"
+    var/size = font.RoundUp32(font.GetWidth(txt))
+    var/iconset/s = font.DrawText(txt, size, 32 - font.height,\
+                                  flags = DF_JUSTIFY_RIGHT, icons_y = 1)</pre>
+
+<p>First, it's important to know just how big an <tt>/iconset</tt> will be
+needed to draw this text, so <tt>RoundUp32()</tt> will take the value of
+<tt>font.GetWidth(txt)</tt> and round it up to a multiple of 32 pixels: the
+size of an icon. So if the text is, say, 81 pixels wide, the next highest
+multiple of 32 is 96, which is 96&divide;32 = 3 icons wide.</p>
+
+<p>Now in <tt>DrawText()</tt>, the <tt>size, 32 - font.height</tt> portion
+looks simple enough: Those are the coordinates where the text should be drawn.
+Since it's right-aligned, text will be drawn out to the left of those
+coordinates. But it's still drawn downward. 32 is the <tt>y</tt> coordinate
+just past the bottom edge of the <tt>/iconset</tt>, so going up by
+<tt>font.height</tt>, subtracting it from 32, will draw text as low down as
+it can go. (Actually you can draw even lower. If you don't use any
+descending characters like a lowercase y, just subtract <tt>font.ascent</tt>
+instead.)</p>
+
+<p>The two arguments that may not look as clear are <tt>flags</tt> and
+<tt>icons_y</tt>. In <tt>flags</tt> you can specify options for word wrapping
+and justification; this text is right-justified, so it uses the flag
+<tt>DF_JUSTIFY_RIGHT</tt>. The <tt>icons_y</tt> var is a limit for how many
+icons to use when creating the <tt>/iconset</tt>; if you don't give it a
+limit it will expand as far as the text. Since the example only calls for one
+icon's worth of height, <tt>icons_y</tt> is set to 1. There's also an
+<tt>icons_x</tt> if you want to limit the width, too--but text will try to
+draw itself right on past that.</p>
+
+<h3>Limiting Text</h3>
+
+<p>You can constrain text even further using the <tt>width</tt> argument, and
+<tt>maxlines</tt>. Text will then wrap words to try to fit within the limits
+you demand. Depending on the flags you use, it may just cut off when it runs
+out of room, or it may trail off in an ellipsis (...) instead.</p>
+
+<pre>var/iconset/s = font.DrawText(mylifestory, 0, 0, width = 160, maxlines = 10,\
+                              flags = DF_WRAP_ELLIPSIS)</pre>
+
+<p>Some life stories are shorter than others, but you'd probably see your text
+cut off on the 10th line with an ellipsis after it. If you wanted to show the
+rest of it later, and need to know where you left off, send a list (it must
+already be initialized) to the proc as <tt>leftover</tt>.</p>
+
+<pre>var/list/nexttext = new
+var/iconset/s = font.DrawText(mylifestory, 0, 0, width = 160, maxlines = 10,\
+                              flags = DF_WRAP_ELLIPSIS, leftover = nexttext)</pre>
+
+<p>The list will come back either empty, or with a string starting on the 11th
+line of <tt>mylifestory</tt>.</p>
+
+<p>You can also indent your text using <tt>firstline</tt>. If you set that to
+10, <tt>DrawText()</tt> will indent the first line by 10 pixels. Or you can
+use it for hanging indents, by making it a negative value. (Note: If you use
+a negative <tt>firstline</tt>, the first line is allowed to be even wider
+than <tt>width</tt> by that amount. If <tt>firstline=-20</tt>, the first line
+may be 20 pixels wider than the others.)</p>
+
+<h4>Preformatting with <tt>GetLines()</tt></h4>
+
+<p>Often it's helpful to preformat text before sending it to
+<tt>DrawText()</tt>. That way you can know just how wide it will be when
+formatted, or how many lines it will have. To do that, use the
+<tt>GetLines()</tt> proc. It's practically the same as <tt>DrawText()</tt>, but
+it leaves out anything related to the drawing itself like the x,y coordinates,
+<tt>icons_x</tt> and <tt>icons_y</tt>, etc. It returns a string, broken up into
+lines with <tt>\n</tt> where <tt>DrawText()</tt> would have broken it up. Using
+<tt>GetWidth()</tt> and <tt>CountLines()</tt> on the result can help you
+fine-tune where you want to put everything before you draw it. If you use
+<tt>GetLines()</tt> to preformat your text, you can also use the
+<tt>DF_NO_FORMAT</tt> flag in <tt>DrawText()</tt> to speed up drawing.</p>
+
+<h4>Word breaks</h4>
+
+<p>Word wrapping is done at the best possible places: at a space if one is
+handy, or at a forced line break (<tt>\n</tt>). If no break is available,
+a word will be split up just before reaching the maximum width and continued
+on the next line. However you may want to provide break points of your own,
+such as after a hyphen. Any character with an ASCII value under 10 is
+considered a "soft break". The character won't display normally, but will
+allow text to be broken up at that point.</p>
+
+<p>The tab character <tt>\t</tt> is a soft break character; in ASCII it's 9. A
+good place to use it would be at the end of punctuation, if for some reason
+no space was put there, or after a hyphen. Another soft break is ASCII 8, the
+"hyphen break". (In the C language, ASCII 8 is <tt>\b</tt> for backspace, but
+in DM it has no equivalent and there's no easy way to add it to a string
+except by using <tt>ascii2text(8)</tt>. Sorry.) The hyphen break will insert
+a hyphen if it's used as a soft break (and will only allow the word to be
+broken there if a hyphen fits).</p>
+
+<p>In version 2, spacers were added for text justification. ASCII characters 1
+through 7 are justification characters, representing 1 through 7 pixels of
+extra padding. Do not rely on these remaining constant, however, as new soft
+breaks may be added in the future if necessary.</p>
+
+
+<h3>More Examples</h3>
+
+<p>The uses of this library are limitless. By exploring your options you'll
+probably discover some unique ideas that no one has even imagined yet. You
+can make an interface really sparkle, or personalize a game, or make it
+easier to tell players apart when custom colors or icons just aren't
+enough.</p>
+
+<h4>Name Labels</h4>
+
+<p>One idea that appears in the demo is to draw a name beneath each player when
+the log in. This can make it a lot easier to tell who's who in the thick of a
+game.</p>
+
+<pre>var/dmifont/Arial7pt/namefont = new
+
+mob
+  Login()
+    // find the most lines we can fit in 1 icon's height
+    var/lines = round(32 / namefont.height)
+    var/txt = namefont.GetLines(key, width = 96, maxlines = lines,\
+                                flags = DF_WRAP_ELLIPSIS)
+    // find out just how big this has to be
+    var/size = namefont.RoundUp32(namefont.GetWidth(txt))
+    var/iconset/s = namefont.DrawText(txt, size / 2, 0,\
+                        width = size, maxlines = lines,\
+                        flags = DF_JUSTIFY_CENTER,\
+                        icons_x = size / 32, icons_y = 1)
+    s.Transparent()     // white text on transparent background
+    var/obj/O = new
+    O.pixel_y = -32
+    overlays = list()   // reset overlays
+    for(var/xx = 0, xx &lt; s.w, ++xx)
+      var/icon/ic = s.GetIcon(xx, 0)
+      if(ic)
+        O.icon = ic
+        O.pixel_x = (xx + (1 - s.w) / 2) * 32
+        overlays += O
+    del(O)
+
+    Logout()
+        overlays = list()</pre>
+
+<p>Most names should fit nicely within the limits. Arial at 7 points is 11
+pixels high, which is just a fraction too tall to fit 3 lines--so it will fit
+2 lines, which is a good amount. There's not much point letting the name get
+huge, anyway.</p>
+
+<p>You may find that white isn't the ideal color for the label. You can use the
+techniques discussed earlier to color it in. One quick change is to use
+<tt>s.Invert()</tt> after <tt>s.Transparent()</tt> to change the text to
+black. And whatever font you use, you shouldn't do any anti-aliasing. About
+the only way you can get that to look good is to use <tt>Dilate()</tt> to
+create an outline, then force the outline to a solid color.</p>
+
+<pre>s.Transparent()
+var/iconset/original = new(s)
+s.Dilate()
+s.Blend(rgb(255, 255, 255), ICON_SUBTRACT)  // change to black-on-transparent
+s.AddSet(original)</pre>
+
+<p>As of version 2.5 you can now also use <tt>QuickName()</tt> easily create
+the same overlays.</p>
+
+
+<h4>More To Come</h4>
+
+<p>I'll have more examples in a future version of this documentation.</p>
+
+
+<h2>Reference</h2>
+
+<h3>Preprocessor Flags</h3>
+
+<p>You may include these in your main .dme file, outside the <tt>BEGIN</tt> and
+<tt>END</tt> lines.</p>
+
+<dl class=datum>
+  <dt>#define DMIFONTS_UPGRADE</dt>
+    <dd>Upgrades a version 1 .dm file to version 2 by adding the
+      <tt>defined</tt> list, if it doesn't exist. This should only be done
+      during development, by the author, but it shouldn't affect gameplay if
+      left in.</dd>
+</dl>
+
+<h3>Datums and Procs</h3>
+
+<dl class=datum><dt>dmifont</dt><dd>
+  This datum is a single font. Use it to render text or test the size of text
+  to draw.<p>
+<dl class=datum>
+  <dt>var/name</dt>
+    <dd>The name of the font.</dd>
+  <dt>var/height</dt>
+    <dd>The height of a line. This is equal to <tt>ascent + descent</tt>.</dd>
+  <dt>var/ascent</dt>
+    <dd>Distance from the top of a line to the baseline of text. This
+      includes some whitespace.</dd>
+  <dt>var/descent</dt>
+    <dd>Distance from the bottom of a line to the baseline of text. This
+      includes some whitespace.</dd>
+  <dt>var/avgwidth</dt>
+    <dd>The average width of a character.</dd>
+  <dt>var/maxwidth</dt>
+    <dd>The widest character width.</dd>
+  <dt>var/overhang</dt>
+    <dd>Extra width, such as from italics, for a line.</dd>
+  <dt>var/inleading</dt>
+    <dd>Internal leading vertical space, for accent marks.</dd>
+  <dt>var/exleading</dt>
+    <dd>External leading vertical space, just plain blank.</dd>
+  <dt>var/defchar</dt>
+    <dd>Default character (for characters not defined in the font).</dd>
+  <dt>var/start</dt>
+    <dd>First character in the font. <b>(Do not change)</b></dd>
+  <dt>var/end</dt>
+    <dd>Last character in the font. <b>(Do not change)</b></dd>
+  <dt>var/icon</dt>
+    <dd>The icon file used for this font.</dd>
+  <dt>var/antialias = 1</dt>
+    <dd>The antialiasing level for this font. Changing this var does
+      nothing.</dd>
+  <dt>var/list/metrics</dt>
+    <dd>A list of character widths in groups of 3, starting with the first
+      character (<tt>start</tt>). A filler value is placed at the end;
+      although not used, it tells how many unique characters are in the
+      font. This was added to improve speed.</dd>
+  <dt>var/list/defined</dt>
+    <dd><i>(Version 2)</i><br>
+      A list telling which characters are defined in the font, and which
+      are not, ranging from 1 to 255. Undefined characters are replaced with
+      the default character.</dd>
+  <dt>var/sizex = 1</dt>
+    <dd>Width of this font, in number of icons.</dd>
+  <dt>var/sizey = 1</dt>
+    <dd>Height of this font, in number of icons.</dd>
+
+  <dt>proc/GetWidth(text, flags=0, firstline=0)</dt>
+    <dd>Get the width of a line of text. If more than one line is used, this
+      returns the width of the longest line. Flags may be included, although
+      in version 2 only <tt>DF_INCLUDE_AC</tt> (see <tt>DrawText()</tt>) is
+      recognized. An indent may be specified for <tt>firstline</tt>, which is
+      applied to the width of the first line only.<br>
+      <b>Warning:</b> As of version 2, <tt>firstline</tt> is now the 3rd
+      argument, not the 2nd. Moving it was more logical than putting
+      <tt>flags</tt> 3rd.</dd>
+
+  <dt>proc/GetCharAWidth(charcode)</dt>
+    <dd>Get the "A" width of a character: The amount to move right before
+      drawing it.</dd>
+
+  <dt>proc/GetCharBWidth(charcode)</dt>
+    <dd>Get the "B" width of a character: The amount to move right while
+      drawing it.</dd>
+
+  <dt>proc/GetCharCWidth(charcode)</dt>
+    <dd>Get the "C" width of a character: The amount to move right after
+      drawing it.</dd>
+
+  <dt>proc/GetCharWidth(charcode)</dt>
+    <dd><i>(Version 2)</i><br>
+      Get the total A+B+C width of a character.</dd>
+
+  <dt>proc/GetLineUpTo(text, xlimit, index=1, ellipsis, flags)</dt>
+    <dd>Starting at <tt>index</tt>, find the next convenient place in
+      <tt>text</tt> to mark a line break before reaching <tt>xlimit</tt>
+      width. The <tt>ellipsis</tt> flag will include a trailing "..." in the
+      final width, if set. The <tt>breakfirst</tt> var indicates that this
+      text began on a break point, and may break immediately if necessary.
+      (<tt>flags</tt> is used internally, and has replaced the old
+      <tt>breakfirst</tt> argument from version 1.)<br>
+      <b>Note:</b> The <tt>DF_INCLUDE_AC</tt> flag is ignored for a trailing
+      ellipsis, if any; that is, the last dot's "C" width will not be
+      counted against the total width.</dd>
+
+  <dt>proc/GetNextPosition(lastlines, nexttext, dmifont/nextfont, lastindent=0, flags=0)</dt>
+  <dd>Return the x position (0 is flush left) where, after drawing several
+    lines of text using <tt>lastlines</tt>, more text may be drawn--possibly
+    in another font. <tt>lastindent</tt> is the indent of the first line of
+    <tt>lastlines</tt>, which may be useful information. This can be used to
+    string several styles together, and it is used exactly that way in
+    <tt>GetMultiFontLines()</tt>.</dd>
+
+  <dt>proc/CountLines(text)</dt>
+    <dd>Count forced line breaks, represented by <tt>\n</tt>, in a text
+      string.</dd>
+
+  <dt>proc/CountLinesConstrained(text, width=-1, flags=0, firstline=0)</dt>
+    <dd>Count lines, as they would be counted in <tt>DrawText()</tt>.</dd>
+
+  <dt>proc/GetWidthConstrained(text, width=-1, flags=0, firstline=0, maxlines=-1)</dt>
+    <dd>Get the maximum width of the lines in <tt>text</tt>, as it would be
+      shown in <tt>DrawText()</tt> with the same parameters.</dd>
+
+  <dt>proc/GoodBreaks(text, width=-1, flags=0, firstline=0)</DT>
+    <dd>Returns 1 if drawing text via <tt>DrawText()</tt> with the same
+      parameters would break up text at good places, or 0 if it would have to
+      split up a word. This is a good way to tell if a longer width would be
+      preferred for some text.</dd>
+
+  <dt>proc/WillFit(text, width=-1, flags=0, firstline=0, maxlines=-1)</dt>
+    <dd>Returns 1 if drawing text via <tt>DrawText()</tt> with the same
+      parameters would fit well, without any bad break points and without
+      running out of room.</dd>
+
+  <dt>proc/GetLines(text, width=-1, flags=0, firstline=0, maxlines=-1, list/leftover)</dt>
+    <dd>Get a modified version of <tt>text</tt> broken into lines as they
+      would be shown in <tt>DrawText()</tt> with the same parameters.</dd>
+
+  <dt>proc/GetCutoffIndex(text, width=-1, flags=0, firstline=0, maxlines=-1)</dt>
+    <dd>Returns the index in <tt>text</tt> where the next line would start
+      off, after the text that would be displayed in <tt>DrawText()</tt>.
+      Where <tt>GetLines()</tt> would give you some text to work with,
+      <tt>copytext(text, GetCutoffIndex(...))</tt> could pick up where
+      <tt>GetLines()</tt> left off.</dd>
+
+  <dt>proc/GetLine(text, index=1)</dt>
+    <dd>Get a complete line of text starting at <tt>index</tt> and ending at
+      either the end of the string or the first <tt>\n</tt> found.</dd>
+
+  <dt>proc/GetLastLineIndex(text, index=1)</dt>
+    <dd>Find the index of the beginning of the last line in a block of text,
+      just after a <tt>\n</tt> character.</dd>
+
+  <dt>proc/GetNextIndex(text, index)</dt>
+    <dd>Following a break point (found by <tt>GetLineUpTo()</tt> or by
+      searching for <tt>\n</tt>), find a suitable index to begin the next
+      line.</dd>
+
+  <dt>proc/RoundUp32(n)</dt>
+    <dd>Round <tt>n</tt> up to the next highest multiple of 32. This is a
+      good way to tell how many icons will be needed to fit a piece of
+      text.</dd>
+
+  <dt>proc/SyncWidth(firstchar, lastchar)</dt>
+    <dd><i>(version 2)</i><br>
+      Create a modified copy of this font to make a range of characters
+      monospaced. Supply <tt>firstchar</tt> and <tt>lastchar</tt> as
+      character codes (such as 48 and 57 for all digits), and the proc will
+      return the new font. This is a good way to display scores, clocks, etc.
+      Use the <tt>DF_INCLUDE_AC</tt> flag when rendering text in this format,
+      unless the first character of your text (or the last, if
+      right-justified, or both if center- or full-justified) was not
+      modified. See <tt>DrawText()</tt> below for an explanation of the
+      flag.</dd>
+
+  <dt>proc/DrawText(text, x, y, width=-1, flags=0, firstline=0, maxlines=-1, icons_x=0, icons_y=0, iconset/drawover, list/leftover)</dt>
+    <dd><p>Draw <tt>text</tt> at position <tt>x</tt>,<tt>y</tt> in an
+      <tt>/iconset</tt>. <tt>x</tt> is the distance from the left edge, and
+      <tt>y</tt> is <b>from the top</b>. The coordinates are for the upper
+      left edge of the text. (If you want to draw from the baseline, subtract
+      <tt>ascent</tt> from <tt>y</tt>.) The drawing area is an
+      <tt>/iconset</tt> datum returned by this proc. Text is white on a black
+      background, but you can change it using the procs in <tt>/iconset</tt>.</p>
+
+      <p>If you specify <tt>icons_x</tt> or <tt>icons_y</tt> you can
+      restrict the <tt>/iconset</tt> to a particular size (in icons, not
+      pixels), or it will expand to fit the text.</p>
+
+      <p>The <tt>width</tt> argument is the maximum width you will allow for
+      your text, or -1 (the default) for as much width as possible. You can
+      also use <tt>firstline</tt> to specify an indentation for the first
+      line.</p>
+
+      <p>You can limit text to a number of lines with <tt>maxlines</tt>, or
+      leave <tt>maxlines</tt> set to -1 for unlimited lines.</p>
+
+      <p>The <tt>flags</tt> argument allows you to decide how you want your text
+      wrapped or justified. Possible flag values are:</p><ul>
+        <li><b>DF_WRAP</b>: Word-wrap text to fit. (default)</li>
+        <li><b>DF_WRAP_NONE</b>: Do not wrap text.</li>
+        <li><b>DF_WRAP_ELLIPSIS</b>: Wrap text. If there is more text than
+          can be printed within <tt>maxlines</tt>, put an ellipsis (...) at
+          the end of the last line to show there is more.</li>
+        <li><b>DF_WRAP_ONELINE</b>: Do not wrap each line, but constrain it
+          to <tt>width</tt> and use ... at the end to show there is more.</li>
+        <li><b>DF_JUSTIFY_LEFT</b>: Left-justify text. (default)</li>
+        <li><b>DF_JUSTIFY_RIGHT</b>: Right-justify text.</li>
+        <li><b>DF_JUSTIFY_CENTER</b>: Center text.</li>
+        <li><b>DF_JUSTIFY</b>: <i>(Version 2)</i> Justify text to both
+          margins.</li>
+        <li><b>DF_INCLUDE_AC</b>: <i>(Version 2)</i> Include the "before" (A)
+          and "after" (C) widths of the beginning and end characters on each
+          line, respectively.</li>
+        <li><b>DF_SET_WIDTH</b>: <i>(Version 2)</i> Round <tt>width</tt> up
+          to the nearest multiple of 32, or if not constrained find width
+          first and then round up. Also adjust <tt>x</tt> if right- or
+          center-justified so position 0 is at the center or right edge. This
+          flag is meaningless to <tt>GetLines()</tt>.</li>
+        <li><b>DF_NO_FORMAT</b>: <i>(Version 2)</i> Do not format this text
+          by calling <tt>GetLines()</tt>; assume <tt>GetLines()</tt> was
+          already called in advance.</li>
+        </ul>
+      <p>By adding <tt>flag</tt> values together or using the <tt>|</tt>
+      operator on them, you can use different combinations of word wrapping
+      and justification.</p>
+
+      <p>The <tt>drawover</tt> var is an <tt>/iconset</tt> to draw on top of.
+      This may be preferable to creating a new <tt>/iconset</tt> and adding
+      it to another one.</p>
+
+      <p>If you supply a list for <tt>leftover</tt>, it will be cleared out and
+      filled with the rest of the text (if any) that didn't get drawn. If its
+      length is 0 afterward, all of the text could be drawn to the
+      constraints specified.</p></dd>
+
+  <dt>proc/DrawChar(charcode, x, y, iconset/ic, charwidth=maxwidth)</dt>
+    <dd>Draw a character at position <tt>x</tt>,<tt>y</tt> in the icon
+      set.<br>
+      <i>(Version 2)</i> <tt>charwidth</tt> is equivalent to
+      <tt>GetCharBWidth(charcode)</tt>, but is passed by <tt>DrawText()</tt>
+      for the sake of speed.</dd>
+
+  <dt>proc/GetLinesMultiFont(list/items, width=-1, flags=0, firstline=0, maxheight=-1, list/leftover)</dt>
+    <dd>Used internally by <tt>DrawTextMultiFont()</tt>. Returns a
+      <tt>/dmifonttextline</tt> datum, which is the first in a double-linked
+      list. If a list is supplied for <tt>leftover</tt>, it will be cleared
+      out and filled with any lines and font instructions that didn't get
+      converted to datums because of height restrictions.</dd>
+
+  <dt>proc/WillFitMultiFont(list/items, width=-1, flags=0, firstline=0, maxheight=-1)</dt>
+    <dd>Returns 1 if drawing text via <tt>DrawTextMultiFont()</tt> with the
+      same parameters would fit well, without any bad break points and
+      without running out of room.</dd>
+
+  <dt>proc/DrawTextMultiFont(list/items, x, y, width=-1, flags=0, firstline=0, maxheight=-1, icons_x, icons_y, iconset/drawover, list/leftover)</dt>
+    <dd><p>Draws a block of text in changing fonts. Most of the arguments are
+      the same as in <tt>DrawText()</tt>, except for a few:</p>
+
+      <p><tt>items</tt> is a list of text and fonts to draw, starting in this
+      font (<tt>src</tt>). The proc will run down through the list and draw
+      text or change fonts as requested. If a font is found, that font is
+      used for subsequent text. If null is found, <tt>src</tt> becomes the
+      default font again. An items list might look like this:</p>
+
+      <pre>list("This is ", boldfont, "bold", null, " text!")</pre>
+
+      <p>The <tt>items</tt> var can also be given a <tt>/dmifonttextline</tt>
+      datum, for those crazy enough to work with it manually.</p>
+
+      <p><tt>maxheight</tt> is the maximum height of all lines. Since the fonts
+      may vary in size, <tt>maxlines</tt> wouldn't be appropriate.</p>
+
+      <p>If you supply a list for <tt>leftover</tt>, it will be cleared out and
+      filled with items from the <tt>items</tt> list that didn't get drawn.
+      The list can be used for a future call to this proc to display the
+      rest.</p></dd>
+
+  <dt>proc/KeyToBreakable(text)</dt>
+    <dd>Breaks up a string of text with soft-break characters at appropriate
+      points. This is designed for player keys but can be used with any
+      text. The rules for inserting soft-breaks are:<ol>
+      <li>Do not add breaks around any spaces or other break chars.</li>
+      <li>Add a hyphen break between a digit (0-9) and a non-digit.</li>
+      <li>Add a hyphen break between a lowercase letter and an uppercase
+        letter that immediately follows it.</li>
+      <li>Add a soft break between a punctuation character and a
+        non-punctuation character that immediately follows it.</li>
+      </ol></dd>
+
+  <dt>proc/QuickName(atom/A, txt, color="#fff", outline, top, size=3, layer=FLY_LAYER)</dt>
+    <dd>Creates a set of overlays for an atom (usually a mob) to represent a
+      name. By default this will appear below the atom unless you use a nonzero
+      value for <tt>top</tt>. <tt>outline</tt> is the color of an optional
+      outline, or use any nonzero, nontext value for a black outline.
+      <tt>size</tt> is the number of icons in width the name may be; at most it
+      can be 8. You may also specify the layer.</dd>
+
+  <dt>proc/QuickText(atom/A, txt, color="#fff", outline, x=0, y=0, bottom, justify=DF_JUSTIFY_LEFT, layer=FLY_LAYER)</dt>
+    <dd>Creates a set of overlays for an atom, usually an obj such as in a HUD.
+      At most your text should only be 128 pixels long. <tt>x</tt> counts the
+      number of pixels from the left, or right if right-justified; centered
+      text ignores <tt>x</tt>. By default <tt>y</tt> counts the number of
+      pixels from the top, unless you use a nonzero value for <tt>bottom</tt>.
+      <tt>outline</tt> is the color of an optional outline (or any nonzero,
+      nontext value for black), which will offset the text to fit. Text may be
+      left-justified, centered, or right-justified by using the appropriate
+      <tt>justify</tt> flags; the overlays will start on the target atom
+      <tt>A</tt> and move off to the right and/or left as needed. You may also
+      specify the layer.</dd>
+</dl>
+</dd></dl>
+
+<dl class=datum><dt>dmifonttextline</dt>
+  <dd>Internal use only. Screw around with it at your own peril.</dd></dl>
+
+<dl class=datum><dt>iconset</dt><dd>
+  <p>This is a set of icons arranged in a grid. It serves as a "virtual image".
+  In the coordinate system for the image, (0,0) is the pixel in the upper
+  left corner, and (<tt>w</tt>*32-1,<tt>h</tt>*32-1) is the lower right.
+  Each individual icon also has a coordinate, where (<tt>w</tt>-1,<tt>h</tt>-1)
+  is the lower right icon. Some of the <tt>/icon</tt> datums in the set may
+  actually be null, or may become null if they become totally transparent, so
+  be sure to check for null icons before you use them.</p>
+<dl class=datum>
+  <dt>var/list/icons</dt>
+    <dd>A list of <tt>/icon</tt> datums, arranged by row starting at the
+      upper left. <b>(Do not change)</b></dd>
+  <dt>var/w</dt>
+    <dd>Width, in icons. <b>(Do not change)</b></dd>
+  <dt>var/h</dt>
+    <dd>Height, in icons. <b>(Do not change)</b></dd>
+
+  <dt>New(icons_x, icons_y, srcicon='black.dmi', srcstate)</dt>
+    <dd>Creates the icon set, using a specified icon (and possibly a
+      specific state) as the source for every icon in the set. By default
+      this produces black icons, for text.
+
+  <dt>New(iconset/s)</dt>
+    <dd>Creates a copy of s, with copies of the <tt>/icon</tt> datums.</dd>
+
+  <dt>proc/GetIcon(ix, iy)</dt>
+    <dd>Returns the icon at position (<tt>ix</tt>,<tt>iy</tt>), where the
+      <tt>ix</tt> and <tt>iy</tt> coordinates start at 0.<br>
+      <b>Warning:</b> A transparent <tt>/icon</tt> often reverts to null.
+      Before using it, double-check that it's not null.</dd>
+
+  <dt>proc/OverlayIcon(icon/c, x, y, icon_width=32, icon_height=32)</dt>
+    <dd>Overlays a single icon at offset position (<tt>x</tt>,<tt>y</tt>)
+      onto this set.<br>
+      <i>(Version 2)</i> <tt>icon_width</tt> and <tt>icon_height</tt> specify
+      the maximum width of the icon from its upper left corner. They are not
+      not used as hard limits, but rather to keep from doing unnecessary work
+      on other icons in the set.</dd>
+
+  <dt>proc/AddIcon(icon/c, x, y, operation=ICON_ADD, icon_width=32, icon_height=32)</dt>
+    <dd>Adds a single icon at offset position (<tt>x</tt>,<tt>y</tt>) onto
+      this set. By specifying <tt>operation=ICON_SUBTRACT</tt> you can
+      subtract as well. Unlike normal addition and subtraction, transparency
+      is ignored.<br>
+      <i>(Version 2)</i> <tt>icon_width</tt> and <tt>icon_height</tt> specify
+      the maximum width of the icon from its upper left corner. They are not
+      not used as hard limits, but rather to keep from doing unnecessary work
+      on other icons in the set.</dd>
+
+  <dt>proc/BlendIcon(icon/c, x, y, operation=ICON_OR, icon_width=32, icon_height=32)</dt>
+    <dd>Blends a single icon at offset position (<tt>x</tt>,<tt>y</tt>)
+      onto this set.<br>
+      <tt>icon_width</tt> and <tt>icon_height</tt> specify
+      the maximum width of the icon from its upper left corner. They are not
+      not used as hard limits, but rather to keep from doing unnecessary work
+      on other icons in the set.</dd>
+
+  <dt>proc/MultiplyIcon(icon/c, x, y, icon_width=32, icon_height=32)</dt>
+    <dd>Multiplies a single icon at offset position (<tt>x</tt>,<tt>y</tt>)
+      onto this set. Transparency is ignored.<br>
+      <i>(Version 2)</i> <tt>icon_width</tt> and <tt>icon_height</tt> specify
+      the maximum width of the icon from its upper left corner. They are not
+      not used as hard limits, but rather to keep from doing unnecessary work
+      on other icons in the set.</dd>
+
+  <dt>proc/BlendSet(icon/c, x, y, operation=ICON_OR)</dt>
+    <dd>Blends an <tt>/iconset</tt> at offset position (<tt>x</tt>,<tt>y</tt>)
+      with this set.</dd>
+
+  <dt>proc/OverlaySet(iconset/s, x, y)</dt>
+    <dd>Overlays an <tt>/iconset</tt> at offset position (<tt>x</tt>,<tt>y</tt>)
+      onto this set.</dd>
+
+  <dt>proc/AddSet(iconset/s, x, y, operation=ICON_ADD)</dt>
+    <dd>Adds an <tt>/iconset</tt> at offset position (<tt>x</tt>,<tt>y</tt>)
+      onto this set. By specifying <tt>operation=ICON_SUBTRACT</tt> you can
+      subtract as well.</dd>
+
+  <dt>proc/MultiplySet(iconset/s, x, y)</dt>
+    <dd>Multiplies an <tt>/iconset</tt> at offset position (<tt>x</tt>,<tt>y</tt>)
+      onto this set.</dd>
+
+  <dt>proc/Blend(I, operation=ICON_ADD)</dt>
+    <dd>Calls <tt>icon.Blend(I, operation)</tt> for every icon in the set.
+      This can be used to create colored text by using <tt>Blend(rgb(r,g,b),
+      ICON_MULTIPLY)</tt>.</dd>
+
+  <dt>proc/Dilate()</dt>
+    <dd>"Dilates" the total image by adding copies shifted north, south, east
+      and west by one pixel. Very useful for creating outlines of text when
+      combined with Invert().</dd>
+
+  <dt>proc/Invert()</dt>
+    <dd>Negates all colors in an image, swapping black and white, yellow and
+      blue, etc.</dd>
+
+  <dt>proc/Transparent(r=0, g=r, b=r)</dt>
+    <dd>Changes a color in the set to transparent.</dd>
+
+  <dt>proc/Opaque(r=0, g=r, b=r)</dt>
+    <dd>Changes transparency to a solid color.</dd>
+
+  <dt>proc/Collapse()</dt>
+    <dd>Creates and returns a single <tt>/icon</tt> with all the icons in this
+      set. The state <tt>"0,0"</tt> is the lower left corner as with .bmp and
+      .png files.</dd>
+</dl>
+</dd></dl>
+
+
+<h2>Version History</h2>
+
+<h3>Version 2.5: August 2005</h3>
+
+<ul>
+  <li><tt>/dmifont/QuickName()</tt> and <tt>/dmifont/QuickText()</tt> were
+    added to speed common operations.</li>
+  <li><tt>iconset/Collapse()</tt> will convert the datum's icons into a single
+    <tt>/icon</tt> datum. The y coordinate is reversed so the result is like a
+    .bmp or .png file imported into an icon, where 0,0 is the lower left
+    corner.</li>
+  <li>It is now possible to create an <tt>/iconset</tt> from a single icon such
+    as an imported .bmp or .png.</li>
+  <li><tt>/dmifonttextline</tt> no longer needs to be manually deleted.</li>
+</ul>
+
+<h3>Version 2.1: April 2004 (released February 2005)</h3>
+
+<ul>
+  <li><tt>iconset/BlendIcon()</tt> and <tt>iconset/BlendSet()</tt> were added
+    to use new icon features of BYOND version 336.</li>
+  <li>Drawing was sped up by removing some gratuitous operations, including
+    one that aggravated a bug in <tt>new/icon()</tt> in BYOND versions prior
+    to 336.</li>
+</ul>
+
+<h3>Version 2: May 2003</h3>
+
+<ul>
+  <li>The DmiFonts utility now allows you to choose where your files will be
+    saved.</li>
+  <li><tt>dmifont/SyncWidth()</tt> can create a modified copy of a font to
+    use for displaying text partially monospaced, such as scores or time
+    displays, with the goal being to keep the same digits always in the same
+    position even if the digits change. (Text like that requires the
+    <tt>DF_INCLUDE_AC</tt> flag to draw unless it's padded at the ends with
+    non-altered characters. Otherwise the text could shift left or right as
+    digits on the end change.)</li>
+  <li>The <tt>DF_NO_FORMAT</tt> flag was added to speed up
+    <tt>dmifont/DrawText()</tt> whenever <tt>GetLines()</tt> has already been
+    called to pre-format the text. This will not affect justification flags
+    (except <tt>DF_JUSTIFY</tt>, which does its work in
+    <tt>GetLines()</tt>).</li>
+  <li>The <tt>DF_SET_WIDTH</tt> flag was added to automatically choose a
+    width that is a multiple of 32. This will also adjust <tt>x</tt> to
+    measure from the center or the right edge (if <tt>DF_JUSTIFY_CENTER</tt>
+    or <tt>DF_JUSTIFY_RIGHT</tt> is also used) instead of the left.</li>
+  <li>The <tt>DF_INCLUDE_AC</tt> flag was added to support new functionality.
+    This required changes to the structure of <tt>GetWidth()</tt> and several
+    other procs.</li>
+  <li>The <tt>/dmifont</tt> datum was modified to include a new list:
+    <tt>defined</tt>. This is a list of ASCII characters from 1 to 255, and
+    contains either null (not defined) or a string. If a string is found, the
+    character is defined. This increases drawing speed. Old <tt>.dm</tt>
+    files can be automatically upgraded using
+    <tt>#define&nbsp;DMIFONTS_UPGRADE</tt> or you can recreate them with the
+    new version of the DmiFonts utility.</li>
+  <li>The <tt>dmifont/GetCharWidth()</tt> proc was added. It returns sum of
+    the A, B, and C widths of a character.</li>
+  <li>Using <tt>DF_JUSTIFY</tt> as a flag will now justify text. ASCII
+    characters 1-7 were co-opted to use as spacers, which are inserted by the
+    <tt>dmifont/GetLines()</tt> proc.</li>
+  <li>The <tt>...Icon()</tt> procs in <tt>/iconset</tt> have all been
+    modified to take new arguments: <tt>icon_width</tt> and
+    <tt>icon_height</tt>. Between that and a change in <tt>dmifont/DrawChar()</tt>
+    designed to make use of the change, drawing should be a tad faster by
+    skipping unnecessary operations.</li>
+  <li><b>Bug fix (minor):</b> When fonts of different sizes are aligned in
+    <tt>dmifont/GetLinesMultiFont()</tt>, they will now line up at the
+    baseline. However, this introduces a new minor bug, in that the next line
+    may need to be spaced further down. The library is currently not equipped
+    to handle this, or to handle other known <tt>dmifont/GetLinesMultiFont()</tt>
+    bugs, so a fix will not appear in this version.</li>
+</ul>
+
+<h3>Version 1: April 2003</h3>
+
+<ul>
+  <li>Initial release</li>
+</ul>
+
+
+
+</body></html>

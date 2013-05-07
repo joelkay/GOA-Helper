@@ -11,13 +11,12 @@
 #define FILE_DIR "CreationScreen/traits"
 #define FILE_DIR "Icons"
 #define FILE_DIR "Libraries"
+#define FILE_DIR "Libraries/dmifonts"
 #define FILE_DIR "pngs"
 // END_FILE_DIR
 // BEGIN_PREFERENCES
 // END_PREFERENCES
 // BEGIN_INCLUDE
-#include <dantom\db\db.dme>
-#include <lummoxjr\dmifonts\DmiFonts.dme>
 #include "GOA Helper.dmf"
 #include "Code\[a]GOA Helper.dm"
 #include "Code\[a]GOA Options.dm"
@@ -49,5 +48,12 @@
 #include "Code\upform section\upform_forms.dm"
 #include "Code\upform section\upform_verbs.dm"
 #include "Libraries\flaticon.dm"
+#include "Libraries\db\core.dm"
+#include "Libraries\db\db.dm"
+#include "Libraries\dmifonts\Arial7pt.dm"
+#include "Libraries\dmifonts\ComicSansMS7pt_AA16.dm"
+#include "Libraries\dmifonts\ComicSansMSItalic7pt_AA16.dm"
+#include "Libraries\dmifonts\demo.dm"
+#include "Libraries\dmifonts\DmiFonts.dm"
 #include "Map\GOA Helper.dmm"
 // END_INCLUDE
