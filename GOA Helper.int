@@ -1,7 +1,7 @@
 // BEGIN_INTERNALS
 /*
 MAP_ICON_TYPE: 0
-WINDOW: Code\[a]GOA Helper.dm;Code\[a]GOA Options.dm;Code\Guide Creation\mysql-core.dm
+WINDOW: Code\[a]GOA Helper.dm;Code\[a]GOA Options.dm;Code\Guide Creation\mysql-core.dm;Code\Guide Creation\[a]Guide-datumn.dm;Code\login-child.dm;Code\[a]GOA Update.dm
 PACKAGE_RSC_NAME: C:\Users\Boys\Dropbox\3-Programming\GOA Helper\GOA Helper_rsc.zip
 LAST_COMPILE_VERSION: 499.1182
 PACKAGE_DME_DEMO: 
@@ -11,9 +11,9 @@ PACKAGE_DMB_HUB:
 PACKAGE_TYPE: 0
 PACKAGE_DMB_CLEANCHECK: ON
 PACKAGE_DME_START: 
-DIR: Code CreationScreen\clan CreationScreen\info CreationScreen\traits Libraries Libraries\dmifonts 
+DIR: Code Code\Guide Creation Code\Player CreationScreen\clan CreationScreen\info CreationScreen\traits Libraries\dmifonts 
 PACKAGE_DME_NAME: C:\Users\Boys\Dropbox\3-Programming\GOA Helper\GOA Helper_src.zip
-FILE: Code\Guide Creation\mysql-core.dm
+FILE: Code\Guide Creation\[a]Guide-datumn.dm
 PACKAGE_DME_INFO: 
 PACKAGE_DMB_NAME: C:\Users\Joelie\Desktop\GOA Helper.zip
 LAST_COMPILE_TIME: 1367953128
