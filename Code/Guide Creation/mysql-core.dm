@@ -2,11 +2,11 @@
 var/debug=0// TURN THIS TO 1 TO SEE ERROR MESSAGES E.T.C
 
 var// my server
-	my_database = "zadmin_goa"
-	my_server = "178.175.140.206"
+	my_database = "zadmin_goahelper"
+	my_server = "162.243.27.121"
 	server_port = 3306
-	my_username = "goadev"
-	my_password = "u7uraduse"
+	my_username = "jsqribe"
+	my_password = "a3ame4e7y"
 
 
 dbConnection
@@ -99,7 +99,7 @@ proc/create_skill_tableA()
 		sleep(2)
 		SQLQuery+="[J.sindex] INT(10)"// its 1 or 0
 		if(i<jlistA.len)SQLQuery+=","//making sure to put a comma beside all values, minus the last one
-		if(debug) world << "Jutsu(A)[i]:[J] Okay"
+		//if(debug) world << "Jutsu(A)[i]:[J.sindex] Okay"
 		i++//continue looping
 	SQLQuery+=")"
 
@@ -107,7 +107,7 @@ proc/create_skill_tableA()
 	var/dbconnection=connector.getConnection(connector.getDbi())
 
 	if(dbconnection)
-		var/DBQuery/resultset = connector.runQuery(dbconnection,"CREATE TABLE GOAHelperJDBA (Guidename VARCHAR(30), GuideID VARCHAR(30), PRIMARY KEY(GuideID),UNIQUE (GuideID), FOREIGN KEY (GuideID) REFERENCES GOAHelper(id))")
+		var/DBQuery/resultset = connector.runQuery(dbconnection,"CREATE TABLE GOAHelperJDBA (Guidename VARCHAR(30), GuideID VARCHAR(30), PRIMARY KEY(GuideID),UNIQUE (GuideID))")
 		if(resultset)
 			if(debug) world << "GuideID Okay"
 		else
@@ -135,7 +135,7 @@ proc/create_skill_tableB()
 		sleep(2)
 		SQLQuery+="[J.sindex] INT(10)"// its 1 or 0
 		if(i<jlistB.len)SQLQuery+=","//making sure to put a comma beside all values, minus the last one
-		if(debug) world << "Jutsu(B)[i]:[J] Okay"
+		//if(debug) world << "Jutsu(B)[i]:[J] Okay"
 		i++//continue looping
 	SQLQuery+=")"
 
@@ -143,7 +143,7 @@ proc/create_skill_tableB()
 	var/dbconnection=connector.getConnection(connector.getDbi())
 
 	if(dbconnection)
-		var/DBQuery/resultset = connector.runQuery(dbconnection,"CREATE TABLE GOAHelperJDBB (Guidename VARCHAR(30), GuideID VARCHAR(30), PRIMARY KEY(GuideID),UNIQUE (GuideID), FOREIGN KEY (GuideID) REFERENCES GOAHelper(id))")//incase we use join later on
+		var/DBQuery/resultset = connector.runQuery(dbconnection,"CREATE TABLE GOAHelperJDBB (Guidename VARCHAR(30), GuideID VARCHAR(30), PRIMARY KEY(GuideID),UNIQUE (GuideID))")//incase we use join later on
 		if(resultset)
 			if(debug) world << "GuideID Okay"
 		else
@@ -180,18 +180,21 @@ proc/create_skillrank_table()
 
 proc/insert_skillrank_tableA()
 	set background=1
+	var/list/Added=list()
 	jlistA()//create a list of all jutsu in table A
 	var/i=1
 	var/SQLQuery
 	SQLQuery+="INSERT INTO `GOAHelperRank` (Skillname,Rank,Votes,Bought) VALUES"
 	while(i<=jlistA.len)//1 - 55 jutsu in the game
 		var/Jutsu/J = jlistA[i]
+		if(J.sindex in Added) continue
+		Added.Add(J.sindex)
 		sleep(2)
 		SQLQuery+="('[J.sindex]','0','0','0')"//
 		if(i<jlistA.len) SQLQuery+=","
 		if(debug) world << "Jutsu(A)[i]:[J] Okay"
 		i++//continue looping
-	SQLQuery+=";"
+	//SQLQuery+=";"
 
 	var/dbConnection/connector = new()
 	var/dbconnection=connector.getConnection(connector.getDbi())
@@ -208,18 +211,21 @@ proc/insert_skillrank_tableA()
 
 proc/insert_skillrank_tableB()
 	set background=1
+	var/list/Added=list()
 	jlistB()//create a list of all jutsu in table B
 	var/i=1
 	var/SQLQuery
 	SQLQuery+="INSERT INTO `GOAHelperRank` (Skillname,Rank,Votes,Bought) VALUES"
 	while(i<=jlistB.len)//1 - 55 jutsu in the game
 		var/Jutsu/J = jlistB[i]
+		if(J.sindex in Added) continue
+		Added.Add(J.sindex)
 		sleep(2)
 		SQLQuery+="('[J.sindex]','0','0','0')"//
 		if(i<jlistB.len) SQLQuery+=","
 		if(debug) world << "Jutsu(B)[i]:[J] Okay"
 		i++//continue looping
-	SQLQuery+=";"
+	//SQLQuery+=";"
 
 	var/dbConnection/connector = new()
 	var/dbconnection=connector.getConnection(connector.getDbi())
@@ -240,7 +246,7 @@ mob/proc/create_passive_table()
 	var/dbconnection=connector.getConnection(connector.getDbi())
 
 	if(dbconnection)
-		var/DBQuery/resultset = connector.runQuery(dbconnection,"CREATE TABLE GOAHelperPassives (Guidename VARCHAR(30), GuideID VARCHAR(30), PRIMARY KEY(GuideID),UNIQUE (GuideID), FOREIGN KEY (GuideID) REFERENCES GOAHelper(id))")//incase we use join later on
+		var/DBQuery/resultset = connector.runQuery(dbconnection,"CREATE TABLE GOAHelperPassives (Guidename VARCHAR(30), GuideID VARCHAR(30), PRIMARY KEY(GuideID),UNIQUE (GuideID))")//incase we use join later on
 		if(resultset)
 			if(debug) world << "GuideID Okay"
 		else

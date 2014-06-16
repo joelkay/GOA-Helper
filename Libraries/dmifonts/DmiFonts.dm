@@ -853,7 +853,7 @@ iconset
 				var/i,j,k
 				if(!s) continue
 				i=text2num(s)
-				j=findText(s,",")
+				j=findtextEx(s,",")
 				if(!j) continue
 				j=text2num(copytext(s,j+1))
 				if(isnull(i) || isnull(j)) continue

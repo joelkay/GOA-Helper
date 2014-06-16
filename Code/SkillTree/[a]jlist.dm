@@ -36,9 +36,10 @@ proc
 
 	starterlist()
 		starterlist=new
-		starterlist+=newlist(/Jutsu/Clone,/Jutsu/Body_Flicker,/Jutsu/Body_Replacement,/Jutsu/Transform,/Jutsu/Exploding_Note)// these are starters
+		starterlist+=newlist(/Jutsu/Clone,/Jutsu/Body_Flicker,/Jutsu/Body_Replacement,/Jutsu/Transform,/Jutsu/Exploding_Note,/Jutsu/Exploding_Kunai, /Jutsu/Windmill_Shuriken)// these are starters
 
 	jlistA()//if n =1, generate fresh lists.
+		jlistA=new
 		var/i=1
 		initiatelist()
 		while(i<56)//1 - 55 jutsu in the game + elements
@@ -49,6 +50,7 @@ proc
 
 
 	jlistB()
+		jlistB=new
 		var/i=56
 		initiatelist()
 		while(i<117)//56 - 117 jutsu in the game

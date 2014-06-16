@@ -80,7 +80,7 @@ Jutsu
 
 
 		if(src.sindex in usr.jutsulist)//PREVENT SALE OF FOUR STARTERS!!!!!
-			if(sindex=="KAWARIMI"||sindex=="HENGE"||sindex=="BUNSHIN"||sindex=="SHUNSHIN"||sindex=="EXPLODING_NOTE")
+			if(sindex=="KAWARIMI"||sindex=="HENGE"||sindex=="BUNSHIN"||sindex=="SHUNSHIN"||sindex=="EXPLODING_KUNAI"||sindex=="EXPLODING_NOTE"||sindex=="WINDMILL_SHURIKEN")
 				if(debug)src<<"GG"
 				usr << browse(description,"window=plannerb")
 				return
@@ -157,7 +157,7 @@ Jutsu
 		skill_reqs = list("AKIMICHI")
 
 	Super_Size_Multiplication
-		icon_state="sizeup"
+		icon_state="sizeup2"
 		descr="Creates a clone to distract your enemies."
 		chakracost = 500
 		cooldown = 200

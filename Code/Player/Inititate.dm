@@ -10,6 +10,8 @@ mob
 			jutsulist.Add("SHUNSHIN")
 			jutsulist.Add("EXPLODING_NOTE")
 			jutsulist.Add("HENGE")
+			jutsulist.Add("EXPLODING_KUNAI")
+			jutsulist.Add("WINDMILL_SHURIKEN")
 			if(loadingskills)return
 			UpdateSkills()// initiate it
 			clearcovers()

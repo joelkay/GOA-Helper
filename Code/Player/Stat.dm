@@ -30,22 +30,27 @@ mob
 		supplies=100
 
 	Stat()
-		var/regenmult=1
 
-		if(skillspassive[3])
-			regenmult*=0.03*skillspassive[3] + 1
 
 		var/chakramult=1
 		if(skillspassive[22])
 			chakramult*=0.04*skillspassive[22] + 1
 
+		cmul=1
+		smul=1
+		if(skillspassive[3])
+			cmul*=0.03*skillspassive[3] + 1
+			smul*=0.03*skillspassive[3] + 1
+		staminaregen=round(smul*stamina/100)
+		chakraregen=round(cmul*(chakra*1.5)/100)
+
 		stat("Clan",":[clan]")
 
 		stat("Level","[clevel]/100")
 
-		stat("Stamina","[stamina]/[stamina] (+[round(staminaregen*regenmult)] regen/s")
+		stat("Stamina","[stamina]/[stamina] (+[round(staminaregen)] regen/s")
 
-		stat("Chakra","[chakra*chakramult]/[chakra*chakramult] (+[round(chakraregen*regenmult)] regen/s)")
+		stat("Chakra","[chakra*chakramult]/[chakra*chakramult] (+[round(chakraregen)] regen/s)")
 
 		stat("Wounds","[round(wounds/100*100)]%")
 

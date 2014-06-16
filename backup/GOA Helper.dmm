@@ -13,12 +13,7 @@
 "m" = (/obj/info,/turf,/area)
 "n" = (/turf/Creation,/area)
 "o" = (/obj/done,/turf,/area)
-"p" = (/turf/ClanClick,/area)
-"q" = (/turf{tag = "Main"},/area)
-"r" = (/obj/Main,/turf,/area)
-"s" = (/obj/SkillMenuC,/turf,/area)
-"t" = (/obj/SkillMenuNC,/turf,/area)
-"u" = (/obj/SkillMenuP,/turf,/area)
+"p" = (/turf{tag = "Main"},/area)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaa
@@ -46,18 +41,18 @@ aaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaa
-aaapapapapapapaaa
-aaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaa
-aaaaaaaaqaaaaaaaa
 aaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaa
+aaaaaaaapaaaaaaaa
 aaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaa
-raaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
 "}
 
 (1,1,3) = {"
@@ -77,7 +72,7 @@ aaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaa
-saaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
 "}
 
 (1,1,4) = {"
@@ -97,7 +92,7 @@ aaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaa
-taaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
 "}
 
 (1,1,5) = {"
@@ -117,5 +112,5 @@ aaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaa
-uaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaa
 "}

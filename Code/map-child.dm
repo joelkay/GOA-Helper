@@ -227,9 +227,11 @@ mob
 					for(var/obj/clanslots/clanslot4/c in world)
 						c.icon='trait-capacity.png'
 						c.clan="Capacity"
+					/*
 					for(var/obj/clanslots/clanslot5/d in world)
 						d.icon='trait-genius.png'
 						d.clan="Genius"
+					*/
 
 				if("Sand")
 					for(var/obj/clanslots/clanslot2/a in world)
@@ -241,9 +243,11 @@ mob
 					for(var/obj/clanslots/clanslot4/c in world)
 						c.icon='trait-capacity.png'
 						c.clan="Capacity"
+					/*
 					for(var/obj/clanslots/clanslot5/d in world)
 						d.icon='trait-genius.png'
 						d.clan="Genius"
+					*/
 
 				if("Mist")
 					for(var/obj/clanslots/clanslot2/a in world)
@@ -255,9 +259,11 @@ mob
 					for(var/obj/clanslots/clanslot4/c in world)
 						c.icon='trait-capacity.png'
 						c.clan="Capacity"
+					/*
 					for(var/obj/clanslots/clanslot5/d in world)
 						d.icon='trait-genius.png'
 						d.clan="Genius"
+					*/
 
 		loadclan(Village)
 			loadinfo(0)//clear it out

@@ -8,6 +8,10 @@ mob
 			set hidden=1
 			var/Guide/G=new/Guide
 			G.load(src.clan,src.slots[currentguide])// loads the guide
+			winset(src,null,{"
+					labeldesc.text = "[G.descr]";
+					"})
+			sleep(2)
 			G.descr = input("Give a description for this guide.","Guide Name",G.descr) as message
 			winset(src,null,{"
 					labeldesc.text = "[G.descr]";
@@ -20,6 +24,10 @@ mob
 			set hidden=1
 			var/Guide/G=new/Guide
 			G.load(src.clan,src.slots[currentguide])// loads the guide
+			winset(src,null,{"
+					labelpros.text = "[G.pros]";
+					"})
+			sleep(2)
 			G.pros = input("Give the strong points of the guide.","Pros",G.pros) as message
 			winset(src,null,{"
 					labelpros.text = "[G.pros]";
@@ -32,6 +40,10 @@ mob
 			set hidden=1
 			var/Guide/G=new/Guide
 			G.load(src.clan,src.slots[currentguide])// loads the guide
+			winset(src,null,{"
+					labelcons.text = "[G.cons]";
+					"})
+			sleep(2)
 			G.cons = input("Give some weakpoints for this guide.","Cons",G.cons) as message
 			winset(src,null,{"
 					labelcons.text = "[G.cons]";

@@ -15,171 +15,182 @@
 "ao" = (/obj/done,/turf,/area)
 "ap" = (/obj/clanskills,/turf,/area)
 "aq" = (/obj/nonclanskills,/turf,/area)
-"ar" = (/obj/elementskills,/turf,/area)
-"as" = (/obj/passives,/turf,/area)
-"at" = (/turf/Main,/turf,/area)
-"au" = (/obj/back,/turf,/area)
-"av" = (/Jutsu/Akimichi,/turf,/area)
-"aw" = (/Jutsu/Hyuuga,/turf,/area)
-"ax" = (/Jutsu/Size_Multiplication{pixel_x = -8; pixel_y = -8},/turf,/area)
-"ay" = (/Jutsu/Spinach_Pill{pixel_x = -25; pixel_y = -8},/turf,/area)
+"ar" = (/obj/passives,/turf,/area)
+"as" = (/turf/Main,/area)
+"at" = (/obj/back,/turf,/area)
+"au" = (/Jutsu/Akimichi,/turf,/area)
+"av" = (/Jutsu/Hyuuga{step_x = -1; step_y = -2},/turf,/area)
+"aw" = (/Jutsu/Uchiha{step_x = -1; step_y = -2},/turf,/area)
+"ax" = (/Jutsu/Size_Multiplication{step_x = -1; step_y = -2; pixel_x = -8; pixel_y = -8},/turf,/area)
+"ay" = (/Jutsu/Spinach_Pill{step_y = -2; pixel_x = -25; pixel_y = -8},/turf,/area)
 "az" = (/Jutsu/Byakugan{pixel_y = -8},/turf,/area)
-"aA" = (/Jutsu/Nara,/turf,/area)
+"aA" = (/Jutsu/Nara{step_x = -1; step_y = -2},/turf,/area)
 "aB" = (/Jutsu/Human_Bullet_Tank{pixel_y = 16},/turf,/area)
-"aC" = (/Jutsu/Haku,/turf,/area)
-"aD" = (/Jutsu/Uchiha,/turf,/area)
-"aE" = (/Jutsu/Shadow_Binding{pixel_y = -8},/turf,/area)
+"aC" = (/Jutsu/Haku{step_x = -1; step_y = -2},/turf,/area)
+"aD" = (/Jutsu/Sharingan_2{step_x = -1; step_y = 6; pixel_y = -8},/turf,/area)
+"aE" = (/Jutsu/Shadow_Binding{step_x = -1; step_y = -2; pixel_y = -8},/turf,/area)
 "aF" = (/Jutsu/Super_Size_Multiplication{pixel_x = -8; pixel_y = 16},/turf,/area)
-"aG" = (/Jutsu/Curry_Pill{pixel_x = 7; pixel_y = 16},/turf,/area)
-"aH" = (/Jutsu/Sensatsusuisho{pixel_y = -8},/turf,/area)
-"aI" = (/Jutsu/Turning_the_Tide{pixel_x = -8; pixel_y = 16},/turf,/area)
+"aG" = (/Jutsu/Curry_Pill{step_y = -2; pixel_x = 7; pixel_y = 16},/turf,/area)
+"aH" = (/Jutsu/Sensatsusuisho{step_x = -1; step_y = -2; pixel_y = -8},/turf,/area)
+"aI" = (/Jutsu/Turning_the_Tide{step_x = -1; step_y = -2; pixel_x = -8; pixel_y = 16},/turf,/area)
 "aJ" = (/Jutsu/Palms{pixel_y = 8},/turf,/area)
-"aK" = (/Jutsu/Gentle_Fist{pixel_x = 8; pixel_y = 16},/turf,/area)
-"aL" = (/Jutsu/Sharingan_2{pixel_y = -8},/turf,/area)
-"aM" = (/Jutsu/Shadow_Neck_Bind{pixel_y = 16},/turf,/area)
-"aN" = (/Jutsu/Kaguya,/turf,/area)
-"aO" = (/Jutsu/Ice_Explosion{pixel_y = 16},/turf,/area)
-"aP" = (/Jutsu/Jashin,/turf,/area)
-"aQ" = (/Jutsu/Sharingan_3{pixel_y = 16},/turf,/area)
-"aR" = (/Jutsu/Shadow_Sewing{pixel_y = 8},/turf,/area)
-"aS" = (/Jutsu/Camellia_Dance{pixel_x = -8; pixel_y = -8},/turf,/area)
-"aT" = (/Jutsu/Piercing_Finger_Bullets{pixel_x = 8; pixel_y = -8},/turf,/area)
-"aU" = (/Jutsu/Demonic_Ice_Crystal_Mirrors{pixel_y = 8},/turf,/area)
-"aV" = (/Jutsu/Death_Ruling_Possession_Blood{pixel_x = 8; pixel_y = -8},/turf,/area)
-"aW" = (/Jutsu/Immortality{pixel_x = -8; pixel_y = -8},/turf,/area)
-"aX" = (/Jutsu/Sharingan_Copy{pixel_y = 8},/turf,/area)
-"aY" = (/Jutsu/Bone_Harden{pixel_y = 16},/turf,/area)
-"aZ" = (/Jutsu/Deidara{pixel_x = -1},/turf,/area)
-"ba" = (/Jutsu/Larch_Dance{pixel_x = -8; pixel_y = 16},/turf,/area)
-"bb" = (/Jutsu/Young_Bracken_Dance{pixel_x = -2; pixel_y = -8},/turf,/area)
-"bc" = (/Jutsu/Puppet,/turf,/area)
-"bd" = (/Jutsu/Stab_Self{pixel_x = 8; pixel_y = 16},/turf,/area)
-"be" = (/Jutsu/Gaara,/turf,/area)
-"bf" = (/Jutsu/Exploding_Bird{pixel_x = 8; pixel_y = -8},/turf,/area)
-"bg" = (/Jutsu/Exploding_Spider{pixel_x = -9; pixel_y = -8},/turf,/area)
-"bh" = (/Jutsu/First_Puppet{pixel_y = -8},/turf,/area)
-"bi" = (/Jutsu/Wound_Regeneration{pixel_x = 8; pixel_y = 8},/turf,/area)
-"bj" = (/Jutsu/Sand_Shield{pixel_y = -8},/turf,/area)
-"bk" = (/Jutsu/Desert_Funeral{pixel_x = -8; pixel_y = 16},/turf,/area)
-"bl" = (/Jutsu/Sand_Shuriken{pixel_x = -24; pixel_y = 17},/turf,/area)
-"bm" = (/Jutsu/C3{pixel_y = 16},/turf,/area)
-"bn" = (/Jutsu/Puppet_Swap{pixel_x = -8; pixel_y = 16},/turf,/area)
-"bo" = (/Jutsu/Second_Puppet,/turf,/area)
-"bp" = (/Jutsu/Puppet_Transform{pixel_x = -24; pixel_y = 16},/turf,/area)
-"bq" = (/Jutsu/Sand_Armor{pixel_y = 16},/turf,/area)
-"br" = (/turf/SkillMenuC,/turf,/area)
-"bs" = (/Jutsu/Clone,/turf,/area)
-"bt" = (/Jutsu/Shadow_Clone{pixel_x = -16},/turf,/area)
-"bu" = (/Jutsu/Shuriken_Shadow_Clone,/turf,/area)
-"bv" = (/Jutsu/Chakra_Leech{pixel_x = -16},/turf,/area)
-"bw" = (/Jutsu/Exploding_Shadow_Clone{pixel_y = -16},/turf,/area)
-"bx" = (/Jutsu/Camouflaged_Hiding{pixel_x = -16; pixel_y = 16},/turf,/area)
-"by" = (/Jutsu/Rasengan,/turf,/area)
-"bz" = (/Jutsu/Large_Rasengan{pixel_x = -16},/turf,/area)
-"bA" = (/Jutsu/Opening_Gate,/turf,/area)
-"bB" = (/Jutsu/Achiever_of_Nirvana_Fist{pixel_x = -16; step_x = 0},/turf,/area)
-"bC" = (/Jutsu/Fear{pixel_x = 16; pixel_y = -16},/turf,/area)
-"bD" = (/Jutsu/Energy_Gate{pixel_y = -16},/turf,/area)
-"bE" = (/Jutsu/Body_Replacement{pixel_y = 16},/turf,/area)
-"bF" = (/Jutsu/Leaf_Whirlwind{pixel_x = -16; pixel_y = 16},/turf,/area)
-"bG" = (/Jutsu/Leaf_Great_Whirlwind{pixel_x = -7; pixel_y = 16},/turf,/area)
-"bH" = (/Jutsu/Delicate_Extraction{pixel_y = 8},/turf,/area)
-"bI" = (/Jutsu/Chakra_Scalpel{pixel_x = 8; pixel_y = 8},/turf,/area)
-"bJ" = (/Jutsu/Body_Disruption_Stab{pixel_x = -16; pixel_y = 8},/turf,/area)
-"bK" = (/Jutsu/Body_Flicker,/turf,/area)
-"bL" = (/Jutsu/Darkness{pixel_x = 16},/turf,/area)
-"bM" = (/Jutsu/Life_Gate,/turf,/area)
-"bN" = (/Jutsu/Lion_Combo{pixel_x = -7},/turf,/area)
-"bO" = (/Jutsu/Healing,/turf,/area)
-"bP" = (/Jutsu/Poison_Mist{pixel_x = 8},/turf,/area)
-"bQ" = (/Jutsu/Poisoned_Needles{pixel_x = -16},/turf,/area)
-"bR" = (/Jutsu/Creation_Rebirth{pixel_x = -14},/turf,/area)
-"bS" = (/Jutsu/Transform{pixel_y = -16},/turf,/area)
-"bT" = (/Jutsu/Menacing_Palm{pixel_y = -8},/turf,/area)
-"bU" = (/Jutsu/Cherry_Blossom_Impact{pixel_x = -4; pixel_y = -8},/turf,/area)
-"bV" = (/Jutsu/Temple_of_Nirvana{pixel_x = -16; pixel_y = 16},/turf,/area)
-"bW" = (/Jutsu/Pain_Gate{pixel_y = 16},/turf,/area)
-"bX" = (/Jutsu/Hidden_Lotus{pixel_y = 16},/turf,/area)
-"bY" = (/Jutsu/Chakra_Enhancement_Smash{pixel_y = -13; pixel_z = 0},/turf,/area)
-"bZ" = (/Jutsu/Exploding_Kunai,/turf,/area)
-"ca" = (/Jutsu/Windmill_Shuriken{pixel_x = -16},/turf,/area)
-"cb" = (/Jutsu/Limit_Gate,/turf,/area)
-"cc" = (/Jutsu/View_Gate{pixel_x = -16},/turf,/area)
-"cd" = (/Jutsu/Wonder_Gate,/turf,/area)
-"ce" = (/Jutsu/Chakra_Enhancement{pixel_x = -4; pixel_y = 20},/turf,/area)
-"cf" = (/Jutsu/Exploding_Note{pixel_y = 16},/turf,/area)
-"cg" = (/Jutsu/Twin_Rising_Dragons{pixel_x = -16; pixel_y = 16},/turf,/area)
-"ch" = (/Jutsu/Manipulate_Advancing_Blades{pixel_y = 16},/turf,/area)
-"ci" = (/Jutsu/Exploding_Body_Replacement{pixel_x = -16; pixel_y = 16},/turf,/area)
-"cj" = (/Jutsu/Shadow_Windmill_Shuriken{pixel_y = 16},/turf,/area)
-"ck" = (/Jutsu/Triple_Exploding_Kunai{pixel_y = 16},/turf,/area)
-"cl" = (/turf/SkillMenuNC,/turf,/area)
-"cm" = (/Jutsu/Chidori_Spear{pixel_x = -1; pixel_y = -5},/turf,/area)
-"cn" = (/Jutsu/False_Darkness{pixel_x = 6; pixel_y = -5},/turf,/area)
-"co" = (/Jutsu/Lightning{pixel_x = 6; pixel_y = -10},/turf,/area)
-"cp" = (/Jutsu/Chidori{pixel_x = 14; pixel_y = -10},/turf,/area)
-"cq" = (/Jutsu/Chidori_Needles{pixel_x = -10; pixel_y = -10},/turf,/area)
-"cr" = (/Jutsu/Mole_Hiding{pixel_x = -1; pixel_y = -16},/turf,/area)
-"cs" = (/Jutsu/Head_Hunter{pixel_x = -24; pixel_y = -16},/turf,/area)
-"ct" = (/Jutsu/Four_Pillar_Binding{pixel_x = -1; pixel_y = -16},/turf,/area)
-"cu" = (/Jutsu/Iron_Skin{pixel_x = -11; pixel_y = 17},/turf,/area)
-"cv" = (/Jutsu/Chidori_Current{pixel_x = 6; pixel_y = 16},/turf,/area)
-"cw" = (/Jutsu/Earth{pixel_y = 8},/turf,/area)
-"cx" = (/Jutsu/Dungeon_Chamber_of_Nothingness{pixel_x = 8; pixel_y = 8},/turf,/area)
-"cy" = (/Jutsu/Split_Earth_Revolution_Palm{pixel_x = -16; pixel_y = 8},/turf,/area)
-"cz" = (/Jutsu/Hidden_Mist{pixel_x = 2; pixel_y = -15},/turf,/area)
-"cA" = (/Jutsu/Earth_Flow_River{pixel_x = -1},/turf,/area)
-"cB" = (/Jutsu/Water_Prison{pixel_x = 10; pixel_y = 16},/turf,/area)
-"cC" = (/Jutsu/Bursting_Water_Shockwave{pixel_y = 8},/turf,/area)
-"cD" = (/Jutsu/Water{pixel_x = 8; pixel_y = 9},/turf,/area)
-"cE" = (/Jutsu/Giant_Vortex{pixel_x = -14; pixel_y = 9},/turf,/area)
-"cF" = (/Jutsu/Collision_Destruction{pixel_x = -1; pixel_y = 9},/turf,/area)
-"cG" = (/Jutsu/Water_Bullet{pixel_y = 1},/turf,/area)
-"cH" = (/Jutsu/Water_Dragon_Projectile{pixel_x = 10; pixel_y = 2},/turf,/area)
-"cI" = (/Jutsu/Syrup_Capture{pixel_x = -13; pixel_y = 2},/turf,/area)
-"cJ" = (/Jutsu/Ash_Accumulation_Burning{pixel_y = 8},/turf,/area)
-"cK" = (/Jutsu/Grand_Fireball{pixel_x = -11},/turf,/area)
-"cL" = (/Jutsu/Fire,/turf,/area)
-"cM" = (/Jutsu/Hosenka{pixel_x = 9},/turf,/area)
-"cN" = (/Jutsu/Fire_Dragon_Flaming_Projectile{pixel_x = -14},/turf,/area)
-"cO" = (/Jutsu/Pressure_Damage{pixel_x = -5},/turf,/area)
-"cP" = (/Jutsu/Wind{pixel_x = 4},/turf,/area)
-"cQ" = (/Jutsu/Great_Breakthrough{pixel_x = -14},/turf,/area)
-"cR" = (/Jutsu/Refined_Air_Bullet,/turf,/area)
-"cS" = (/Jutsu/Coiling_Flame{pixel_x = 22; pixel_y = -8},/turf,/area)
-"cT" = (/Jutsu/Nail_Flower{pixel_x = -23; pixel_y = -8},/turf,/area)
-"cU" = (/Jutsu/Blade_of_Wind{pixel_x = 6; pixel_y = -6},/turf,/area)
-"cV" = (/Jutsu/Vacuum_Blade{pixel_x = -14; pixel_y = -7},/turf,/area)
-"cW" = (/turf/SkillMenuE,/area)
-"cX" = (/obj/gui/passives/gauge/rfx,/turf,/area)
-"cY" = (/obj/gui/passives/gauge/str,/turf,/area)
-"cZ" = (/obj/gui/passives/gauge/int,/turf,/area)
-"da" = (/obj/gui/passives/gauge/con,/turf,/area)
-"db" = (/obj/gui/passives/rfx/Speed_Demon,/turf,/area)
-"dc" = (/obj/gui/passives/rfx/Blindside,/turf,/area)
-"dd" = (/obj/gui/passives/str/Built_Solid,/turf,/area)
-"de" = (/obj/gui/passives/str/Impact,/turf,/area)
-"df" = (/obj/gui/passives/int/Analytical,/turf,/area)
-"dg" = (/obj/gui/passives/int/Tracking,/turf,/area)
-"dh" = (/obj/gui/passives/con/Efficiency,/turf,/area)
-"di" = (/obj/gui/passives/con/Hand_Seal_Mastery,/turf,/area)
-"dj" = (/obj/gui/passives/rfx/Rend,/turf,/area)
-"dk" = (/obj/gui/passives/rfx/Sword_Mastery,/turf,/area)
-"dl" = (/obj/gui/passives/str/Deflection,/turf,/area)
-"dm" = (/obj/gui/passives/str/Piercing_Strike,/turf,/area)
-"dn" = (/obj/gui/passives/int/Bunshin_Mastery,/turf,/area)
-"do" = (/obj/gui/passives/int/Kawa_Mastery,/turf,/area)
-"dp" = (/obj/gui/passives/con/Powerhouse,/turf,/area)
-"dq" = (/obj/gui/passives/con/Regeneration,/turf,/area)
-"dr" = (/obj/gui/passives/rfx/Projectile_Master,/turf,/area)
-"ds" = (/obj/gui/passives/rfx/Weak_Spot,/turf,/area)
-"dt" = (/obj/gui/passives/str/Combo,/turf,/area)
-"du" = (/obj/gui/passives/str/Better_Criticals,/turf,/area)
-"dv" = (/obj/gui/passives/int/Genjutsu_Mastery,/turf,/area)
-"dw" = (/obj/gui/passives/int/Concentration,/turf,/area)
-"dx" = (/obj/gui/passives/con/Medic_Training,/turf,/area)
-"dy" = (/obj/gui/passives/con/Pure_Power,/turf,/area)
-"dz" = (/turf/SkillMenuP,/area)
+"aK" = (/Jutsu/Gentle_Fist{step_x = -1; step_y = -2; pixel_x = 8; pixel_y = 16},/turf,/area)
+"aL" = (/Jutsu/Shadow_Neck_Bind{step_x = -1; step_y = -2; pixel_y = 16},/turf,/area)
+"aM" = (/Jutsu/Kaguya{step_x = -1; step_y = -2},/turf,/area)
+"aN" = (/Jutsu/Ice_Explosion{pixel_y = 16},/turf,/area)
+"aO" = (/Jutsu/Jashin,/turf,/area)
+"aP" = (/Jutsu/Sharingan_3{step_x = -1; step_y = 14; pixel_y = 16},/turf,/area)
+"aQ" = (/Jutsu/Shadow_Sewing{step_x = -1; step_y = -2; pixel_y = 8},/turf,/area)
+"aR" = (/Jutsu/Camellia_Dance{step_x = -1; step_y = -2; pixel_x = -8; pixel_y = -8},/turf,/area)
+"aS" = (/Jutsu/Piercing_Finger_Bullets{step_x = -1; step_y = -2; pixel_x = 8; pixel_y = -8},/turf,/area)
+"aT" = (/Jutsu/Demonic_Ice_Crystal_Mirrors{step_x = -1; step_y = -2; pixel_y = 8},/turf,/area)
+"aU" = (/Jutsu/Death_Ruling_Possession_Blood{step_x = -1; step_y = -2; pixel_x = 8; pixel_y = -8},/turf,/area)
+"aV" = (/Jutsu/Immortality{step_x = -1; step_y = -2; pixel_x = -8; pixel_y = -8},/turf,/area)
+"aW" = (/Jutsu/Sharingan_Copy{step_x = -1; step_y = -10; pixel_y = 8},/turf,/area)
+"aX" = (/Jutsu/Bone_Harden{step_x = -1; step_y = -2; pixel_y = 16},/turf,/area)
+"aY" = (/Jutsu/Deidara{step_y = -2; pixel_x = -1},/turf,/area)
+"aZ" = (/Jutsu/Larch_Dance{step_x = -1; step_y = -2; pixel_x = -8; pixel_y = 16},/turf,/area)
+"ba" = (/Jutsu/Young_Bracken_Dance{step_y = -2; pixel_x = -2; pixel_y = -8},/turf,/area)
+"bb" = (/Jutsu/Puppet{step_x = -1; step_y = -2},/turf,/area)
+"bc" = (/Jutsu/Stab_Self{step_x = -1; step_y = -1; pixel_x = 8; pixel_y = 16},/turf,/area)
+"bd" = (/Jutsu/Gaara{step_x = -1; step_y = -1},/turf,/area)
+"be" = (/Jutsu/Exploding_Bird{step_x = -18; step_y = -1; pixel_x = 8; pixel_y = -8},/turf,/area)
+"bf" = (/Jutsu/Exploding_Spider{step_x = 13; step_y = -2; pixel_x = -9; pixel_y = -8},/turf,/area)
+"bg" = (/Jutsu/First_Puppet{step_x = -1; step_y = -1; pixel_y = -8},/turf,/area)
+"bh" = (/Jutsu/Wound_Regeneration{step_x = -1; step_y = -1; pixel_x = 8; pixel_y = 8},/turf,/area)
+"bi" = (/Jutsu/Sand_Shield{step_x = -1; step_y = -1; pixel_y = -8},/turf,/area)
+"bj" = (/Jutsu/Desert_Funeral{step_x = -1; step_y = -2; pixel_x = -8; pixel_y = 16},/turf,/area)
+"bk" = (/Jutsu/Sand_Shuriken{step_x = -1; step_y = -3; pixel_x = -24; pixel_y = 17},/turf,/area)
+"bl" = (/Jutsu/C3{step_x = -1; step_y = -2; pixel_y = 16},/turf,/area)
+"bm" = (/Jutsu/Puppet_Swap{step_x = -1; step_y = -2; pixel_x = -8; pixel_y = 16},/turf,/area)
+"bn" = (/Jutsu/Second_Puppet{step_x = -1; step_y = -2},/turf,/area)
+"bo" = (/Jutsu/Puppet_Transform{step_x = -1; step_y = -1; pixel_x = -24; pixel_y = 16},/turf,/area)
+"bp" = (/Jutsu/Sand_Armor{step_x = -1; step_y = -1; pixel_y = 16},/turf,/area)
+"bq" = (/turf/SkillMenuC,/turf,/area)
+"br" = (/Jutsu/Clone{step_x = -2; step_y = 2},/turf,/area)
+"bs" = (/Jutsu/Shadow_Clone{step_x = 14; step_y = 1},/turf,/area)
+"bt" = (/Jutsu/Shuriken_Shadow_Clone{step_x = -2; step_y = 2},/turf,/area)
+"bu" = (/Jutsu/Chakra_Leech{step_x = 13; step_y = 2},/turf,/area)
+"bv" = (/Jutsu/Iron_Skin{step_x = 10},/turf,/area)
+"bw" = (/Jutsu/Exploding_Shadow_Clone{step_x = -2; step_y = -14},/turf,/area)
+"bx" = (/Jutsu/Camouflaged_Hiding{step_x = 14; step_y = -14},/turf,/area)
+"by" = (/Jutsu/Earth{step_x = -2; step_y = 10},/turf,/area)
+"bz" = (/Jutsu/Earth_Flow_River{step_x = 9; step_y = -10},/turf,/area)
+"bA" = (/Jutsu/Dungeon_Chamber_of_Nothingness{step_x = -14; step_y = 10},/turf,/area)
+"bB" = (/Jutsu/Split_Earth_Revolution_Palm{step_x = -2; step_y = 10},/turf,/area)
+"bC" = (/Jutsu/Multiple_Shadow_Clone{step_x = 14; step_y = 18},/turf,/area)
+"bD" = (/Jutsu/Ash_Accumulation_Burning{step_x = 9; step_y = -10},/turf,/area)
+"bE" = (/Jutsu/Rasengan{step_x = -1; step_y = 1},/turf,/area)
+"bF" = (/Jutsu/Large_Rasengan{step_x = 14; step_y = 2},/turf,/area)
+"bG" = (/Jutsu/Opening_Gate{step_x = -2; step_y = 2},/turf,/area)
+"bH" = (/Jutsu/Achiever_of_Nirvana_Fist{step_x = 12; step_y = 2},/turf,/area)
+"bI" = (/Jutsu/Fire{step_x = -2; step_y = 2},/turf,/area)
+"bJ" = (/Jutsu/Grand_Fireball{step_x = 10; step_y = -18},/turf,/area)
+"bK" = (/Jutsu/Hosenka{step_x = 17; step_y = 2},/turf,/area)
+"bL" = (/Jutsu/Fire_Dragon_Flaming_Projectile{step_x = -2; step_y = 2},/turf,/area)
+"bM" = (/Jutsu/Fear{step_x = 14; step_y = -14},/turf,/area)
+"bN" = (/Jutsu/Energy_Gate{step_x = -2; step_y = -13},/turf,/area)
+"bO" = (/Jutsu/Leaf_Whirlwind{step_x = 14; step_y = -14},/turf,/area)
+"bP" = (/Jutsu/Lightning{step_x = -2; step_y = -10},/turf,/area)
+"bQ" = (/Jutsu/Chidori_Current{step_x = 9; step_y = 14},/turf,/area)
+"bR" = (/Jutsu/Chidori{step_x = 18; step_y = -8},/turf,/area)
+"bS" = (/Jutsu/Chidori_Needles{step_x = -2; step_y = -8},/turf,/area)
+"bT" = (/Jutsu/Body_Flicker{step_x = -1; step_y = 2},/turf,/area)
+"bU" = (/Jutsu/Darkness{step_x = -18; step_y = 2},/turf,/area)
+"bV" = (/Jutsu/Life_Gate{step_x = -1; step_y = 2},/turf,/area)
+"bW" = (/Jutsu/Lion_Combo{step_x = 14; step_y = 2},/turf,/area)
+"bX" = (/Jutsu/Chidori_Spear{step_x = 10; step_y = 2},/turf,/area)
+"bY" = (/Jutsu/Transform{step_x = -1; step_y = -14},/turf,/area)
+"bZ" = (/Jutsu/Manipulate_Advancing_Blades{step_x = 14; step_y = -15},/turf,/area)
+"ca" = (/Jutsu/Bursting_Water_Shockwave{step_x = 10},/turf,/area)
+"cb" = (/Jutsu/Temple_of_Nirvana{step_x = 13; step_y = 18},/turf,/area)
+"cc" = (/Jutsu/Pain_Gate{step_x = -3; step_y = 15},/turf,/area)
+"cd" = (/Jutsu/Chakra_Scalpel{step_x = -2; step_y = 10},/turf,/area)
+"ce" = (/Jutsu/Water{step_x = -2; step_y = 12},/turf,/area)
+"cf" = (/Jutsu/Water_Dragon_Projectile{step_x = 10; step_y = -8},/turf,/area)
+"cg" = (/Jutsu/Giant_Vortex{step_x = -14; step_y = 12},/turf,/area)
+"ch" = (/Jutsu/Collision_Destruction{step_x = -2; step_y = 12},/turf,/area)
+"ci" = (/Jutsu/Exploding_Kunai{step_x = -2; step_y = 2},/turf,/area)
+"cj" = (/Jutsu/Windmill_Shuriken{step_x = 14; step_y = 2},/turf,/area)
+"ck" = (/Jutsu/Limit_Gate{step_x = -2},/turf,/area)
+"cl" = (/Jutsu/Healing{step_x = 14; step_y = 2},/turf,/area)
+"cm" = (/Jutsu/Poison_Mist{step_x = -3; step_y = 2},/turf,/area)
+"cn" = (/Jutsu/Poisoned_Needles{step_x = 14; step_y = 2},/turf,/area)
+"co" = (/Jutsu/Creation_Rebirth{step_x = -2; step_y = 2},/turf,/area)
+"cp" = (/Jutsu/Pressure_Damage{step_x = 9; step_y = -10},/turf,/area)
+"cq" = (/Jutsu/Exploding_Note{step_x = -2; step_y = -14},/turf,/area)
+"cr" = (/Jutsu/Chakra_Enhancement{step_x = 0; step_y = -5},/turf,/area)
+"cs" = (/Jutsu/Body_Disruption_Stab{step_x = -18; step_y = -6},/turf,/area)
+"ct" = (/Jutsu/Wind{step_x = -1; step_y = 2},/turf,/area)
+"cu" = (/Jutsu/Great_Breakthrough{step_x = 18; step_y = 2},/turf,/area)
+"cv" = (/Jutsu/Refined_Air_Bullet{step_x = -2; step_y = 2},/turf,/area)
+"cw" = (/Jutsu/Twin_Rising_Dragons{step_x = 14; step_y = 18},/turf,/area)
+"cx" = (/Jutsu/Blade_of_Wind{step_x = 10; step_y = 14},/turf,/area)
+"cy" = (/turf/SkillMenuNC,/turf,/area)
+"cz" = (/Jutsu/Chidori_Spear{pixel_x = -1; pixel_y = -5},/turf,/area)
+"cA" = (/Jutsu/False_Darkness{pixel_x = 6; pixel_y = -5},/turf,/area)
+"cB" = (/Jutsu/Lightning{pixel_x = 6; pixel_y = -10},/turf,/area)
+"cC" = (/Jutsu/Chidori{pixel_x = 14; pixel_y = -10},/turf,/area)
+"cD" = (/Jutsu/Chidori_Needles{pixel_x = -10; pixel_y = -10},/turf,/area)
+"cE" = (/Jutsu/Mole_Hiding{pixel_x = -1; pixel_y = -16},/turf,/area)
+"cF" = (/Jutsu/Head_Hunter{pixel_x = -24; pixel_y = -16},/turf,/area)
+"cG" = (/Jutsu/Four_Pillar_Binding{pixel_x = -1; pixel_y = -16},/turf,/area)
+"cH" = (/Jutsu/Iron_Skin{pixel_x = -11; pixel_y = 17},/turf,/area)
+"cI" = (/Jutsu/Chidori_Current{pixel_x = 6; pixel_y = 16},/turf,/area)
+"cJ" = (/Jutsu/Earth{pixel_y = 8},/turf,/area)
+"cK" = (/Jutsu/Dungeon_Chamber_of_Nothingness{pixel_x = 8; pixel_y = 8},/turf,/area)
+"cL" = (/Jutsu/Split_Earth_Revolution_Palm{pixel_x = -16; pixel_y = 8},/turf,/area)
+"cM" = (/Jutsu/Hidden_Mist{pixel_x = 2; pixel_y = -15},/turf,/area)
+"cN" = (/Jutsu/Earth_Flow_River{pixel_x = -1},/turf,/area)
+"cO" = (/Jutsu/Water_Prison{pixel_x = 10; pixel_y = 16},/turf,/area)
+"cP" = (/Jutsu/Bursting_Water_Shockwave{pixel_y = 8},/turf,/area)
+"cQ" = (/Jutsu/Water{pixel_x = 8; pixel_y = 9},/turf,/area)
+"cR" = (/Jutsu/Giant_Vortex{pixel_x = -14; pixel_y = 9},/turf,/area)
+"cS" = (/Jutsu/Collision_Destruction{pixel_x = -1; pixel_y = 9},/turf,/area)
+"cT" = (/Jutsu/Water_Bullet{pixel_y = 1},/turf,/area)
+"cU" = (/Jutsu/Water_Dragon_Projectile{pixel_x = 10; pixel_y = 2},/turf,/area)
+"cV" = (/Jutsu/Syrup_Capture{pixel_x = -13; pixel_y = 2},/turf,/area)
+"cW" = (/Jutsu/Ash_Accumulation_Burning{pixel_y = 8},/turf,/area)
+"cX" = (/Jutsu/Grand_Fireball{pixel_x = -11},/turf,/area)
+"cY" = (/Jutsu/Hosenka{pixel_x = 9},/turf,/area)
+"cZ" = (/Jutsu/Fire_Dragon_Flaming_Projectile{pixel_x = -14},/turf,/area)
+"da" = (/Jutsu/Pressure_Damage{pixel_x = -5},/turf,/area)
+"db" = (/Jutsu/Wind{pixel_x = 4},/turf,/area)
+"dc" = (/Jutsu/Great_Breakthrough{pixel_x = -14},/turf,/area)
+"dd" = (/Jutsu/Coiling_Flame{pixel_x = 22; pixel_y = -8},/turf,/area)
+"de" = (/Jutsu/Nail_Flower{pixel_x = -23; pixel_y = -8},/turf,/area)
+"df" = (/Jutsu/Blade_of_Wind{pixel_x = 6; pixel_y = -6},/turf,/area)
+"dg" = (/Jutsu/Vacuum_Blade{pixel_x = -14; pixel_y = -7},/turf,/area)
+"dh" = (/turf/SkillMenuE,/area)
+"di" = (/obj/gui/passives/gauge/rfx,/turf,/area)
+"dj" = (/obj/gui/passives/gauge/str,/turf,/area)
+"dk" = (/obj/gui/passives/gauge/int,/turf,/area)
+"dl" = (/obj/gui/passives/gauge/con,/turf,/area)
+"dm" = (/obj/gui/passives/rfx/Speed_Demon,/turf,/area)
+"dn" = (/obj/gui/passives/rfx/Blindside,/turf,/area)
+"do" = (/obj/gui/passives/str/Built_Solid,/turf,/area)
+"dp" = (/obj/gui/passives/str/Impact,/turf,/area)
+"dq" = (/obj/gui/passives/int/Analytical,/turf,/area)
+"dr" = (/obj/gui/passives/int/Tracking,/turf,/area)
+"ds" = (/obj/gui/passives/con/Efficiency,/turf,/area)
+"dt" = (/obj/gui/passives/con/Hand_Seal_Mastery,/turf,/area)
+"du" = (/obj/gui/passives/rfx/Rend,/turf,/area)
+"dv" = (/obj/gui/passives/rfx/Sword_Mastery,/turf,/area)
+"dw" = (/obj/gui/passives/str/Deflection,/turf,/area)
+"dx" = (/obj/gui/passives/str/Piercing_Strike,/turf,/area)
+"dy" = (/obj/gui/passives/int/Bunshin_Mastery,/turf,/area)
+"dz" = (/obj/gui/passives/int/Kawa_Mastery,/turf,/area)
+"dA" = (/obj/gui/passives/con/Powerhouse,/turf,/area)
+"dB" = (/obj/gui/passives/con/Regeneration,/turf,/area)
+"dC" = (/obj/gui/passives/rfx/Projectile_Master,/turf,/area)
+"dD" = (/obj/gui/passives/rfx/Weak_Spot,/turf,/area)
+"dE" = (/obj/gui/passives/str/Combo,/turf,/area)
+"dF" = (/obj/gui/passives/str/Better_Criticals,/turf,/area)
+"dG" = (/obj/gui/passives/int/Genjutsu_Mastery,/turf,/area)
+"dH" = (/obj/gui/passives/int/Concentration,/turf,/area)
+"dI" = (/obj/gui/passives/con/Medic_Training,/turf,/area)
+"dJ" = (/obj/gui/passives/con/Pure_Power,/turf,/area)
+"dK" = (/turf/SkillMenuP,/area)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -209,94 +220,94 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaapapapapapapapapapapapaaaaaa
 aaaaaaapapapapapapapapapapapaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaa
-aaaqaqaqaqaqaqaqaqaqaqaqaqaqaqaqaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaarararararararararararararararaa
-aaaaararararararararararararararaa
-aaaaasasasasasasasasaaaaaaaaaaaaaa
-aaaaasasasasasasasasaaaaaaaaaaaaaa
+aaaaaqaqaqaqaqaqaqaqaqaqaqaqaqaqaa
+aaaqaqaqaqaqaqaqaqaqaqaqaqaqaqaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-ataaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaarararararararararararararaaaa
+aaaaarararararararararararararaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+asaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 "}
 
 (1,1,3) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaauauaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaatataaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaavaaaaaaaaaaawaaaaaaaaaa
+aaaaaaaaaaauaaaaaaaaaaavaaaaaaawaa
 aaaaaaaaaxaaaaayaaaaaaazaaaaaaaaaa
 aaaAaaaaaaaBaaaaaCaaaaaaaaaaaaaDaa
-aaaEaaaaaFaaaGaaaHaaaIaJaKaaaaaLaa
+aaaEaaaaaFaaaGaaaHaaaIaJaKaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaMaaaaaaaNaaaaaOaaaaaPaaaaaaaQaa
-aaaRaaaaaSaaaTaaaUaaaVaaaWaaaaaXaa
-aaaaaaaaaaaYaaaaaaaaaaaaaaaaaaaaaa
-aaaaaZaababbaaaabcaabdaaaaaabeaaaa
-aabfaabgaaaaaaaabhaabiaaaaaabjaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaabkaaaabl
-aaaabmaaaaaaaabnboaabpaaaaaabqaaaa
+aaaLaaaaaaaMaaaaaNaaaaaOaaaaaaaPaa
+aaaQaaaaaRaaaSaaaTaaaUaaaVaaaaaWaa
+aaaaaaaaaaaXaaaaaaaaaaaaaaaaaaaaaa
+aaaaaYaaaZbaaaaabbaabcaaaaaabdaaaa
+aabeaabfaaaaaaaabgaabhaaaaaabiaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaabjaaaabk
+aaaablaaaaaaaabmbnaaboaaaaaabpaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-braaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+bqaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 "}
 
 (1,1,4) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaauauaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aabsaabtbuaabvaaaaaaaaaaaaaaaaaaaa
-aaaaaaaabwaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaabxaaaaaaaaaaaaaaaaaaaa
-aabyaabzaabAaabBaaaaaaaaaaaaaaaaaa
-aaaabCaaaabDaaaaaaaaaaaaaaaaaaaaaa
-aabEaaaaaaaaaabFbGaaaabHbIaabJaaaa
-aabKbLaaaabMaaaabNaaaabObPaabQbRaa
-aabSaaaaaaaaaaaaaaaaaabTaabUaaaaaa
-aaaaaabVaabWaaaabXaaaaaaaaaabYaaaa
-aabZaacaaacbaacccdaaaaaaaaceaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aacfaacgchaacicjaackaaaaaaaaaaaaaa
+aabrbsaabtbuaaaaaaaaaaaabvaaaaaaaa
+aaaaaaaabwbxaaaaaaaaaabybzaabAbBaa
+aaaabCaaaaaaaaaaaaaaaaaabDaaaaaaaa
+aabEbFaabGbHaaaaaaaaaabIbJbKaabLaa
+aaaabMaabNbOaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaabPbQbRaabSaa
+aabTaabUbVbWaaaaaaaaaaaabXaaaaaaaa
+aabYaaaaaabZaaaaaaaaaaaacaaaaaaaaa
+aaaacbaaccaaaacdaaaaaacecfaacgchaa
+aacicjaackclaacmcnaacoaacpaaaaaaaa
+aacqaaaaaaaaaacraacsaactaacuaacvaa
+aaaacwaaaaaaaaaaaaaaaaaacxaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-claaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+cyaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 "}
 
 (1,1,5) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaauauaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaatataaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaacmcnaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaacocpaacqaaaaaacraacsaaaa
-aaaaaaaactaaaaaaaaaaaacuaaaaaaaaaa
-aaaaaaaaaacvaaaaaaaaaaaacwcxaacyaa
-aaczaaaaaaaaaaaaaaaaaaaacAaaaaaaaa
-aaaacBaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aacCcDaacEcFaaaaaaaaaaaaaaaaaaaaaa
-aacGcHaacIaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaacJaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaacKcLcMaacNaa
-aaaaaacOcPaacQcRaaaacSaaaaaacTaaaa
-aaaaaaaacUaacVaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaczcAaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaacBcCaacDaaaaaacEaacFaaaa
+aaaaaaaacGaaaaaaaaaaaacHaaaaaaaaaa
+aaaaaaaaaacIaaaaaaaaaaaacJcKaacLaa
+aacMaaaaaaaaaaaaaaaaaaaacNaaaaaaaa
+aaaacOaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aacPcQaacRcSaaaaaaaaaaaaaaaaaaaaaa
+aacTcUaacVaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaacWaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaacXbIcYaacZaa
+aaaaaadadbaadccvaaaaddaaaaaadeaaaa
+aaaaaaaadfaadgaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-cWaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+dhaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 "}
 
 (1,1,6) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaauauaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaatataaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaacXaaaaaacYaaaaaacZaaaaaadaaaaa
+aaaadiaaaaaadjaaaaaadkaaaaaadlaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aadbaadcaaddaadeaadfaadgaadhaadiaa
+aadmaadnaadoaadpaadqaadraadsaadtaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aadjaadkaadlaadmaadnaadoaadpaadqaa
+aaduaadvaadwaadxaadyaadzaadAaadBaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aadraadsaadtaaduaadvaadwaadxaadyaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aadCaadDaadEaadFaadGaadHaadIaadJaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-dzaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+dKaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 "}

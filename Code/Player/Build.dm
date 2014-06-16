@@ -7,6 +7,10 @@ mob
 		levels=0
 		fromguide=0//custom info
 		previewguide=0//live previews
+		chakramultiplier
+		stammultiplier
+		cmul
+		smul
 
 	verb
 		rebuild()
@@ -28,6 +32,24 @@ mob
 	proc
 		DoBuild()
 			if(!fromguide)
+
+				//MULTIPLIETS//
+				stammultiplier=1
+				chakramultiplier=1
+				if(clan == "Youth")
+					stammultiplier=1.5
+					chakramultiplier=0.5
+				else if(clan == "Capacity")
+					stammultiplier=1.25
+					chakramultiplier=1.5
+
+				cmul=1
+				smul=1
+				if(skillspassive[3])
+					cmul*=0.03*skillspassive[3] + 1
+					smul*=0.03*skillspassive[3] + 1
+
+
 				var/num1 = winget(usr, "strinput", "text")
 				strinput = text2num(num1)
 				if(debug)src<<"Str:[strinput]"
@@ -90,62 +112,28 @@ mob
 				//////////////////////////////////////////////////////////
 				//////////////////////////////////////////////////////////
 
+				if(!clevel)//straight builders
+					stamina=2000+(25*levels)+(13*str)*stammultiplier//normal
+
+				else
+					stamina=2000+(25*newlevels)+(13*str)*stammultiplier//normal
+
+
+				if(!clevel)//straight builders
+					chakra=500+(5*con)*chakramultiplier
+
+
+				else
+					chakra=500+(5*con)*chakramultiplier
+
+				staminaregen=round(smul*stamina/100)
+				chakraregen=round(cmul*(chakra*1.5)/100)
 
 				switch(clan)
-					if("Capacity")
-						var/cmul=1.3//increase capa chakra/regen by 30%
-
-						if(!clevel)//straight builders
-							stamina=2500+(40*levels)+(13*str)//capa
-							staminaregen=round((((2500+(str*13))+(levels*25)))/100)//normal
-						else
-							stamina=2500+(40*newlevels)+(13*str)//capa
-							staminaregen=round((((2500+(str*13))+(newlevels*25)))/100)//normal
-
-						if(!clevel)//straight builders
-							chakra=((500+(15*levels)+(5*con))*cmul)//capa
-							chakraregen=round(((((500+(con*5))+(levels*5)))/60)*cmul)//normal
-						else
-							chakra=((500+(15*newlevels)+(5*con))*cmul)//capa
-							chakraregen=round(((((500+(con*5))+(newlevels*5)))/60)*cmul)//normal
-
-					if("Youth")
-						if(!clevel)//straight builders
-							stamina=2500+(55*levels)+(13*str)//youth
-							staminaregen=round((((2500+(str*13))+(levels*25)))/100)//normal
-						else
-							stamina=2500+(55*newlevels)+(13*str)//youth
-							staminaregen=round((((2500+(str*13))+(newlevels*25)))/100)//normal
-
-						if(!clevel)//straight builders
-							chakra=500+(0*levels)+(5*con)//youth
-							chakraregen=round((((500+(con*5))+(levels*5)))/60)//normal
-						else
-							chakra=500+(0*newlevels)+(5*con)//youth
-							chakraregen=round((((500+(con*5))+(newlevels*5)))/60)//normal
-
-					else//NORMAL
-						if(!clevel)//straight builders
-							stamina=2500+(25*levels)+(13*str)//normal
-							staminaregen=round((((2500+(str*13))+(levels*25)))/100)//normal
-						else
-							stamina=2500+(25*newlevels)+(13*str)//normal
-							staminaregen=round((((2500+(str*13))+(newlevels*25)))/100)//normal
-
-						if(!clevel)//straight builders
-							chakra=500+(5*levels)+(5*con)
-							chakraregen=round((((500+(con*5))+(levels*5)))/60)
-
-						else
-							chakra=500+(5*newlevels)+(5*con)
-							chakraregen=round((((500+(con*5))+(newlevels*5)))/60)
-
-
-						switch(clan)
-							if("Jashin")
-								wounds=100
-							if("Fire")
-								wounds=130
+					if("Jashin")
+						wounds=100
+					if("Fire")
+						wounds=130
 
 				/*if(clan == "Genius")
 				src.skillpoints+=60
@@ -156,17 +144,23 @@ mob
 				if(!previewguide)//if they are just previewing dont allocate sp
 				//////////////////////////////////////////////////////////
 
+
+					/*
 					if(src.clan=="Genius")
 						if(!clevel)//straight builders
 							src.skillpoints=((270+(intinput*55))*levels)
 						else
 							src.skillpoints+=((270+(intinput*55))*levels)
 
+
+
 					else
-						if(!clevel)//straight builders
-							src.skillpoints=((270+(intinput*35))*levels)
-						else
-							src.skillpoints+=((270+(intinput*35))*levels)
+					*/
+
+					if(!clevel)//straight builders
+						src.skillpoints=((270+(intinput*35))*levels)
+					else
+						src.skillpoints+=((270+(intinput*35))*levels)
 
 					src.maxskillpoints=skillpoints//what does dis do? LuL
 

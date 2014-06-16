@@ -24,7 +24,7 @@ mob
 					durablebar.value = [src.numz4];
 					supportbar.value = [src.numz5];
 					"})
-
+			/*
 	////////////////////////////////////////////////////////////TAI STANCES
 			for(var/Jutsu/J in contents)
 				if(J.sindex == "TAI_STANCE1"||J.sindex == "TAI_STANCE2"||J.sindex == "TAI_STANCE3")
@@ -41,5 +41,5 @@ mob
 			if(rfx>=300)
 				var/Jutsu/L=new/Jutsu/Taijutsu_stance_3
 				src.contents+=L
-
+			*/
 			UpdateSkills()// initiate it

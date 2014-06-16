@@ -316,6 +316,8 @@ window "Dice"
 		on-size = ""
 		icon-size = 32
 		text-mode = false
+		letterbox = true
+		zoom = 0
 		on-show = ""
 		on-hide = ""
 		style = ""
@@ -766,6 +768,8 @@ window "Planner"
 		on-show = ""
 		on-hide = ""
 		on-tab = ""
+		prefix-color = none
+		suffix-color = none
 	elem "guidename2"
 		type = LABEL
 		pos = 248,0
@@ -1428,6 +1432,8 @@ window "featured"
 		on-size = ""
 		icon-size = 0
 		text-mode = false
+		letterbox = true
+		zoom = 0
 		on-show = ""
 		on-hide = ""
 		style = ""
@@ -1533,6 +1539,8 @@ window "featured"
 		on-size = ""
 		icon-size = 32
 		text-mode = false
+		letterbox = true
+		zoom = 0
 		on-show = ""
 		on-hide = ""
 		style = ""
@@ -1558,6 +1566,8 @@ window "featured"
 		on-size = ""
 		icon-size = 32
 		text-mode = false
+		letterbox = true
+		zoom = 0
 		on-show = ""
 		on-hide = ""
 		style = ""
@@ -4245,6 +4255,8 @@ window "map"
 		on-size = ""
 		icon-size = 0
 		text-mode = false
+		letterbox = true
+		zoom = 0
 		on-show = ""
 		on-hide = ""
 		style = ""
