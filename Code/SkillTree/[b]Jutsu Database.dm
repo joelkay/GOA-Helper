@@ -197,7 +197,7 @@ Jutsu
 		"}
 		chakracost = 0
 		cooldown = 5
-		sname="Size up"
+		sname="Curry Pill"
 		sindex = "CURRY_PILL"
 		skillcost = 1200
 		skill_reqs = list("SPINACH_PILL","AKIMICHI")

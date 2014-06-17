@@ -119,7 +119,7 @@
 "co" = (/Jutsu/Creation_Rebirth{step_x = -2; step_y = 2},/turf,/area)
 "cp" = (/Jutsu/Pressure_Damage{step_x = 9; step_y = -10},/turf,/area)
 "cq" = (/Jutsu/Exploding_Note{step_x = -2; step_y = -14},/turf,/area)
-"cr" = (/Jutsu/Chakra_Enhancement{step_x = 0; step_y = -5},/turf,/area)
+"cr" = (/Jutsu/Cherry_Blossom_Impact{step_x = -2; step_y = -6},/turf,/area)
 "cs" = (/Jutsu/Body_Disruption_Stab{step_x = -18; step_y = -6},/turf,/area)
 "ct" = (/Jutsu/Wind{step_x = -1; step_y = 2},/turf,/area)
 "cu" = (/Jutsu/Great_Breakthrough{step_x = 18; step_y = 2},/turf,/area)

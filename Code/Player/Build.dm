@@ -145,7 +145,7 @@ mob
 				//////////////////////////////////////////////////////////
 
 
-					/*
+					/
 					if(src.clan=="Genius")
 						if(!clevel)//straight builders
 							src.skillpoints=((270+(intinput*55))*levels)
@@ -155,14 +155,14 @@ mob
 
 
 					else
-					*/
 
-					if(!clevel)//straight builders
-						src.skillpoints=((270+(intinput*35))*levels)
-					else
-						src.skillpoints+=((270+(intinput*35))*levels)
 
-					src.maxskillpoints=skillpoints//what does dis do? LuL
+						if(!clevel)//straight builders
+							src.skillpoints=((270+(intinput*35))*levels)
+						else
+							src.skillpoints+=((270+(intinput*35))*levels)
+
+						src.maxskillpoints=skillpoints//what does dis do? LuL
 
 
 				//////////////////////////////////////////////////////////

@@ -301,7 +301,9 @@ mob
 						c.icon='cland-sand.png'
 						c.clan="Sand"
 						c.prereq="SAND_SUMMON"
-
+					for(var/obj/clanslots/clanslot5/d in world)
+						d.icon='trait-genius.png'
+						d.clan="Genius"
 
 
 

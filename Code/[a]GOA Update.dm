@@ -29,7 +29,7 @@ mob/proc
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-var/version=2.0
+var/version=2.1
 var/guidesdelete=0//change to 1 if you want the update to ask people to delete stuff
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -47,15 +47,22 @@ upForm
 				<b>
 				<font color =black>
 				Version: [version]<br />
+				->Updated for GOA Classic.<br />
+				->Server back online for guide saving/loading.<br />
+				</b>
+				<br />
+
+				<font color =grey><>Update Log:<>
+				<br />
+
+				<font color =grey>
+				Version: 2.0<br />
 				->MySQL queries have been updated. Uploading guides should be faster now.<br />
 				->New MySQL server, slight increase in upload speed.<br />
 				->Added Chakra Enhancement and Hidden Lotus.<br />
 				</b>
 				<br />
 
-				<font color =grey><>Update Log:<>
-				<br />
-				<font color =grey>
 				Version: 1.5<br />
 				->New Features! Genjutsu Dice and Featured Skills.<br />
 				->New Features! Options: work in progress, you can find this at the login screen.<br />
@@ -64,12 +71,13 @@ upForm
 				->More passives have been activated and can be shown in the Damage Information.
 				->Capacity Chakra/Regen Added.
 				->Fixed skillpoint costs of several skills.<i><font size =1> Bug Report: Kaguya BB</i></font><br />
-				</b>
+				<br />
 
 				Version: 1.1<br />
 				->changes to the map section, skills now display a border when they have been bought.<br />
 				->Elements now show how much they cost when stacked.<i><font size =1> Bug Report: AdamJay</i></font><br />
 				->some fixes to some of the elements not buying properly.<i><font size =1> Bug Report: AdamJay</i></font><br />
+				<br />
 
 				Version: 1.0<br />
 				 -> Guide section revamp,it is now easier to make/publish guides.<br />
@@ -77,6 +85,7 @@ upForm
 				 -> Fixed reset function in the planner, it now resets passives. <font size =1><i>Bug Report: Takezo</i></font>.<br />
 				 -> Added a remove passive feature <font size =1><i>Feature Suggestion: Takezo</i></font>.<br />
 				 -> Stamina and Chakra formulas are still not up to date,waiting on Dipic..<br />
+				 <br />
 
 				Version: 0.5<br />
 				 -> Added MySql functionality, Guides can now be published and downloaded.<br />
@@ -84,6 +93,7 @@ upForm
 				 -> Added reset function in the planner, it is easier to redo builds if you mess up.<br />
 				 -> Updated passives(added kawa passive).<br />
 				 -> Stamina and Chakra formulas are not up to date, still trying to figure the new ones out.<br />
+				 <br />
 
 				Version: 0.1<br />
 				-> Added Genius Clan, need to sort out the sp gain.<br />
