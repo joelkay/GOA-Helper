@@ -1145,14 +1145,14 @@ Jutsu
 
 	Multiple_Shadow_Clone
 		icon_state="taijuu_kage_bunshin"
-		descr={"<font color = red>This jutsu is being discontinued.
+		descr={"Creates many clones to distract your enemies.
 		"}
 		chakracost = 500
 		cooldown = 120
 		sname="Multiple Shadow Clone"
 		sindex = "TAJUU_KAGE_BUNSHIN"
 		skillcost = 1800
-		skill_reqs = list("MASTERDAN")//xD
+		skill_reqs = list("KAGE_BUNSHIN")//...
 
 	Exploding_Shadow_Clone
 		icon_state="exploading bunshin"

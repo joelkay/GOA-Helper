@@ -49,8 +49,8 @@ upForm
 				Version: [version]<br />
 				->Updated for GOA Classic.<br />
 				->Server back online for guide saving/loading.<br />
-				-> Fixed some bugs and other issues
-				-> Disabled Guides for some reworks.
+				-> Fixed some bugs and other issues<br />
+				-> Disabled Guides for some reworks.<br />
 				</b>
 				<br />
 

@@ -1,7 +1,7 @@
 /////////////////////OPTIONS////////////////////////////////////////////////
 mob/var
 	Alert="On"//game alerts on/off
-	Dview="orientate"//or "featured" //the default bottom view
+	Dview="featured"//or "orientate" //the default bottom view
 
 mob/verb
 	options()
