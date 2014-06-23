@@ -1,7 +1,7 @@
 // BEGIN_INTERNALS
 /*
 MAP_ICON_TYPE: 0
-WINDOW: Code\Player\Build.dm;Code\planner-child.dm;Code\Guide Creation\[a]Guide-datumn.dm;Code\Guide Creation\[b]viewguide-child.dm;GOA Helper.dmf;Map\GOA Helper.dmm;Code\SkillTree\[b]Jutsu Database.dm;Code\Player\Inititate.dm;Code\SkillTree\[a]input proc.dm;Code\map-child.dm;Code\Player\Build Orientation.dm;Code\[a]GOA Update.dm
+WINDOW: Code\Guide Creation\[a]Guide-datumn.dm;Code\info-child.dm
 LAST_COMPILE_VERSION: 506.1247
 PACKAGE_RSC_NAME: C:\Users\Boys\Dropbox\3-Programming\GOA Helper\GOA Helper_rsc.zip
 PACKAGE_DME_DEMO: 
@@ -11,11 +11,11 @@ PACKAGE_DMB_HUB:
 PACKAGE_RSC_CLEANCHECK: OFF
 PACKAGE_DMB_CLEANCHECK: ON
 PACKAGE_DME_START: 
-DIR: Code Code\Guide Creation Code\Player Code\SkillTree CreationScreen\clan CreationScreen\info CreationScreen\traits Libraries\dmifonts Map 
+DIR: Code Code\Guide Creation Code\Player Code\SkillTree CreationScreen\clan CreationScreen\info CreationScreen\traits Libraries\dmifonts 
 PACKAGE_DME_NAME: C:\Users\Boys\Dropbox\3-Programming\GOA Helper\GOA Helper_src.zip
-FILE: Code\[a]GOA Update.dm
+FILE: Code\info-child.dm
 PACKAGE_DME_INFO: 
-LAST_COMPILE_TIME: 1403019876
+LAST_COMPILE_TIME: 1403522275
 PACKAGE_DMB_NAME: C:\Users\Joel\Desktop\GOA Helper.zip
 AUTO_FILE_DIR: ON
 PACKAGE_DMB_INFO: libmysql.dll

@@ -60,6 +60,7 @@ Guide
 		list/elements=list()
 
 	proc/save()
+		if(debug)alert("Guides/[clan]/[name]")
 		var/savefile/s=new("Guides/[clan]/[name].sav")
 		s["id"] << id
 		s["name"] << name
@@ -110,9 +111,9 @@ Guide
 		///////////////////////////////////////
 		s["skills"] << skills
 		s["elements"] << elements
-		s["published"] << elements
+		s["published"] << published
 
-
+		return 1
 
 
 
@@ -128,7 +129,7 @@ Guide
 		s["owner"] >> owner
 		s["creator"] >> creator
 		//////////////////////////////////////////////
-		if(!all)return
+		if(!all)return 1
 		s["descr"] >> descr
 		s["pros"] >> pros
 		s["cons"] >> cons
@@ -168,7 +169,9 @@ Guide
 		///////////////////////////////////////
 		s["skills"] >> skills
 		s["elements"] >> elements
-		s["published"] >> elements
+		s["published"] >> published
+
+		return 1
 
 
 
@@ -191,9 +194,11 @@ mob
 				default.main.left = "viewguide";
 				guidename.text="[X.description]";
 				"})
-			viewGuide(X)
 			adverts(2)
 			X.save()
+			refresh_pages()
+			sleep(2)
+			viewGuide(X)
 
 
 

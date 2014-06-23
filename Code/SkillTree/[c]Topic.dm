@@ -4,6 +4,7 @@ mob/Topic(href,href_list[])
 			var/sname = href_list["name"]
 			var/element= href_list["element"]
 			var/value= text2num(href_list["cost"])
+			if(usr.previewguide) return
 
 			if(element)
 				switch(usr.elements.len)
@@ -66,6 +67,7 @@ mob/Topic(href,href_list[])
 			var/sname = href_list["name"]
 			var/element= href_list["element"]
 			var/value= text2num(href_list["cost"])
+			if(usr.previewguide) return
 
 			if(element)
 				switch(usr.elements.len)

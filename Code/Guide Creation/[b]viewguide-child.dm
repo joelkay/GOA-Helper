@@ -130,6 +130,9 @@ mob
 			G.rfx1=R
 
 			G.save()
+
+			sleep(2)
+
 			src << output("<font size=1><font color = green><b>All Changes Saved.</font>","guideoput")//info :D
 /*			if(src.lastlevel<100)
 				switch(alert("Would you like to add more phases to the build?",,"Yes","No"))

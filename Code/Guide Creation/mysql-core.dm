@@ -401,7 +401,7 @@ mob/proc/insert_passive_table(Guide/G)
 			i++
 			sleep(2)
 			if(skillspassive[i])
-				SQLQuery+=",passive[i]='[contents[i]]'"//1 = they have it
+				SQLQuery+=",passive[i]='[ skillspassive[i] ]'"//1 = they have it
 				if(debug) src << "passive[i]: Okay"
 		SQLQuery+="WHERE Guidename='[G.name]' AND GuideID='[Gid]'"
 
@@ -590,7 +590,9 @@ proc/load_table(var/value)//do it pre clan less laggy?
 							G.lvl1=text2num(row_data[D])//for the build
 
 					G.published=1//all these guides already have builds no need to babysit now bro(do their build)
-					G.save()
+
+					G.save() //*Only save guides that they preview or w.e*
+
 					LoadedGuides.Add(G)
 
 

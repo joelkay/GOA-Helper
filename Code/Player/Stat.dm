@@ -38,6 +38,7 @@ mob
 
 		cmul=1
 		smul=1
+
 		if(skillspassive[3])
 			cmul*=0.03*skillspassive[3] + 1
 			smul*=0.03*skillspassive[3] + 1

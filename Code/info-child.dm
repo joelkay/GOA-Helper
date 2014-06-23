@@ -82,13 +82,30 @@ mob
 
 				DataSort()
 			else
-				switch(alert(src,"No Files for [clan] would you like to check the server?","[clan] Guides","Yes","No"))
-					if("Yes")
-						GuideLoad(1)//so they can call the load saves again
-				winset(src,null,{"
-				Loader.text = "Loading...";
-				Loader.is-visible = "false";
-				"})
+				if(!LoadedGuides.len)
+					switch(alert(src,"No Files for [clan] would you like to check the server?","[clan] Guides","Yes","No"))
+						if("Yes")
+							spawn() GuideLoad(1)//so they can call the load saves again
+
+							winset(src,null,{"
+							Loader.text = "Loading...";
+							Loader.is-visible = "false";
+							"})
+
+			if(!currentguide)
+				if(length(filelist) != 0)
+					currentguide = 1 //if no guides the next guide is guide 1
+				else
+					currentguide = length(filelist) + 1 // else the next guide is guide+1
+
+
+
+
+
+
+
+
+
 
 		DataSort()
 			switch(sort)

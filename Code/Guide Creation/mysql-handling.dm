@@ -68,7 +68,8 @@ mob/proc
 		if(LoadedGuides.len)
 			alert("[LoadedGuides.len] Guide(s) have been downloaded")
 			refresh_pages()
-			if(num==1)Load_Savefiles()//load it for them
+			if(num==1)
+				Load_Savefiles()//load it for them
 		else
 			alert("No Guides for [clan] were found on the server, be the first to make one? :)","[clan]","Maybe")
 

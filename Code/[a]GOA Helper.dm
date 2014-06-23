@@ -25,8 +25,20 @@ world/New()
 mob/Login()
 	// allow authorized keys to manage comments by letting the
 	// player use the verb
+
+	..()
+
+
 	if(src.key in authorized)
 		src.verbs += typesof(/mob/admin/verb)
 
-	..()
+
+		switch(alert("Turn on Debug?","Debug","Yes","No"))
+			if("Yes")
+				debug = 1
+				winshow(src,"debug",1)
+
+
+
+
 

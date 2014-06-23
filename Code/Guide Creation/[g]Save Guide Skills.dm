@@ -10,18 +10,21 @@ mob/verb
 		G.elements=src.elements//the elements list to be sent to server, load it appropriately
 		G.skillspassive=src.skillspassive
 
+
 		winset(src,null,{"
 			default.main2.left = "updates";
 			default.main.left = "viewguide";
 			guidename.text="[G.description]";
 			"})
-		G.save()
-		viewGuide(G)
-		winset(src,null,{"
-			publishb.is-visible = "true";
-			"})
 
-		alert("Note: You will have to publish your guide again to save changes to the servers","Guide:Publish")
+		if ( G.save() )
+			sleep(2)
+			viewGuide(G)
+			winset(src,null,{"
+				publishb.is-visible = "true";
+				"})
+
+			alert("Note: You will have to publish your guide again to save changes to the servers","Guide:Publish")
 
 
 mob/verb

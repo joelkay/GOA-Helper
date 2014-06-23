@@ -1,20 +1,18 @@
 mob/var/tmp/loadingskills=0
 mob/proc
 	LoadStuff(Guide/G,var/num=0)
-
+		initiatelist()
 		src.contents=new
-		loadingskills=1//so as to not reset you
-		Playerini()
 
 		RELOAD// if they finished downloading skills
 
 		if(G.skills.len>0)//local use
 
-			initiatelist()
-			for(var/Jutsu/X in jlist)
-				if(X.sindex in G.skills&&!X in src.contents)//no dups
-					src.contents+=X
-					src<<"[X]"
+			for(var/X in G.skills)
+				for(var/Jutsu/J in jlist)
+					if(J.sindex==X)
+						src.contents+=J
+						src<<"[J]"
 
 
 			src.jutsulist=G.skills//t

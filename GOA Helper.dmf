@@ -4536,7 +4536,7 @@ window "open2"
 window "options"
 	elem "options"
 		type = MAIN
-		pos = 0,358
+		pos = 281,0
 		size = 544x544
 		anchor1 = none
 		anchor2 = none
