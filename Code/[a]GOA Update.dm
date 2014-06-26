@@ -29,7 +29,7 @@ mob/proc
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-var/version=2.3
+var/version=2.4
 var/guidesdelete=1//change to 1 if you want the update to ask people to delete stuff
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -50,7 +50,7 @@ upForm
 				->Updated for GOA Classic.<br />
 				->Server back online for guide saving/loading.<br />
 				-> Fixed some bugs and other issues<br />
-				-> Disabled Guides for some reworks.<br />
+				-> Guides are now under testing.<br />
 				</b>
 				<br />
 

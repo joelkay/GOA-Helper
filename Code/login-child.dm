@@ -5,10 +5,6 @@ mob
 		guidesection()
 			set hidden=1
 
-			if(!src.key in authorized)
-				alert("This section is currently under reconstruction")
-				return
-
 			winset(src,null,{"
 					default.main.left = "map";
 					buildchild.left = "open";
