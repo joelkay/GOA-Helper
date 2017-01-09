@@ -2,11 +2,11 @@
 var/debug=0// TURN THIS TO 1 TO SEE ERROR MESSAGES E.T.C
 
 var// my server
-	my_database = "zadmin_goahelper"
-	my_server = "162.243.27.121"
+	my_database = "goahelper"
+	my_server = "db4free.net"
 	server_port = 3306
-	my_username = "jsqribe"
-	my_password = "a3ame4e7y"
+	my_username = "goahelper"
+	my_password = "123qwertyuiop"
 
 
 dbConnection
