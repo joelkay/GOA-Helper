@@ -3,7 +3,7 @@ var/debug=0// TURN THIS TO 1 TO SEE ERROR MESSAGES E.T.C
 
 var// my server
 	my_database = "goahelper"
-	my_server = "db4free.net"
+	my_server = "db"
 	server_port = 3306
 	my_username = "goahelper"
 	my_password = "123qwertyuiop"
