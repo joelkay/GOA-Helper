@@ -3,6 +3,17 @@ world
 	view="17x17"
 
 #define CEIL(_x_) -round(-(_x_))
+
+
+
+
+world
+	name = "GOA Helper"
+	status = "{Public Server}"
+	hub = "	JeanSqribe.GOAHelper"
+
+
+
 mob/var/loggedin=0
 mob
 	Login()
