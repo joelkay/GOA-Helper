@@ -1,24 +1,24 @@
 // BEGIN_INTERNALS
 /*
-PACKAGE_DMB_HUB: 
 MAP_ZOOM: 1.000
+PACKAGE_DMB_HUB: 
 LAST_COMPILE_TIME: 1599774656
-DIR: Code Code\Guide Creation Code\Player Code\SkillTree CreationScreen\clan CreationScreen\info CreationScreen\traits Libraries\dmifonts 
 PACKAGE_RSC_NAME: C:\Users\Boys\Dropbox\3-Programming\GOA Helper\GOA Helper_rsc.zip
+DIR: Code Code\Guide Creation Code\Player Code\SkillTree CreationScreen\clan CreationScreen\info CreationScreen\traits Libraries\dmifonts 
 AUTO_FILE_DIR: ON
-PACKAGE_DMB_INFO: libmysql.dll
-PACKAGE_DMB_CLEANCHECK: ON
 PACKAGE_DME_CLEANCHECK: OFF
+PACKAGE_DMB_CLEANCHECK: ON
+PACKAGE_DMB_INFO: libmysql.dll
 MAP_ICON_TYPE: 0
 PACKAGE_DME_NAME: C:\Users\Boys\Dropbox\3-Programming\GOA Helper\GOA Helper_src.zip
 LAST_COMPILE_VERSION: 513.1532
-PACKAGE_DME_START: 
 PACKAGE_TYPE: 0
-WINDOW: Code\Player\Build.dm;Code\login-child.dm;Code\[a]GOA Update.dm;Code\Guide Creation\mysql-core.dm;Code\SkillTree\[c]Topic.dm;Code\Player\Build Orientation.dm;Code\[a]GOA Helper.dm;Code\Guide Creation\[a]Guide-datumn.dm;Code\Guide Creation\[g]Load Guide Skills.dm;Code\Guide Creation\blank.dm;Code\[a]GOA Options.dm
-PACKAGE_DME_INFO: 
+PACKAGE_DME_START: 
 PACKAGE_RSC_CLEANCHECK: OFF
-FILE: Code\[a]GOA Helper.dm
-PACKAGE_DMB_NAME: C:\Users\Joel\Desktop\GOA Helper.zip
+PACKAGE_DME_INFO: 
+WINDOW: Code\Player\Build.dm;Code\login-child.dm;Code\[a]GOA Update.dm;Code\Guide Creation\mysql-core.dm;Code\SkillTree\[c]Topic.dm;Code\Player\Build Orientation.dm;Code\[a]GOA Helper.dm;Code\Guide Creation\[a]Guide-datumn.dm;Code\Guide Creation\mysql-handling.dm
+FILE: Code\Guide Creation\mysql-core.dm
 PACKAGE_DME_DEMO: 
+PACKAGE_DMB_NAME: C:\Users\Joel\Desktop\GOA Helper.zip
 */
 // END_INTERNALS
